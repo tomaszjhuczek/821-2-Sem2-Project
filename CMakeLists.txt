@@ -3,12 +3,14 @@ project(TU821-Sem2-Project VERSION 0.1.0 LANGUAGES C CXX)
 
 add_executable(TU821-Sem2-Project 
         main.cpp
-        Crop.cpp
-        Crop.h
+        AbstractCrop.cpp
+        AbstractCrop.h
         Item.h 
         Item.cpp 
         ItemRegistry.h 
-        ItemRegistry.cpp 
+        ItemRegistry.cpp
+        StandardCrop.cpp
+        StandardCrop.h
 )
 
 
