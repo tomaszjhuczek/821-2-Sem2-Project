@@ -5,6 +5,10 @@ add_executable(TU821-Sem2-Project
         main.cpp
         Crop.cpp
         Crop.h
+        Item.h 
+        Item.cpp 
+        ItemRegistry.h 
+        ItemRegistry.cpp 
 )
 
 
