@@ -12,8 +12,11 @@ _deps
 CMakeUserPresets.json
 build
 CMakePresets.json
+.cache*
 
 # IDE Specific
 .idea*
 .vscode*
 *.exe
+
+main
