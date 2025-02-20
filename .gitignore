@@ -16,3 +16,4 @@ CMakePresets.json
 # IDE Specific
 .idea*
 .vscode*
+*.exe
