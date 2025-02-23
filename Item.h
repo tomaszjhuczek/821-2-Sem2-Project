@@ -12,10 +12,16 @@ public:
 
 private:
     string name; 
-    unsigned int ID; 
-    unsigned int durability; 
+    enum ItemType {
+        CHEMICAL = 1, 
+        TOOL, 
+    }; 
+    unsigned int itemID;                // type range: 0 - 4294967295 ... will need to think about randomizing 
+    unsigned int durability;            // assignment. 
     unsigned int maxDurability; 
+    float monentaryValue; 
 
 };
 
 #endif
+

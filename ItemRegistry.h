@@ -14,7 +14,7 @@ public:
     ItemRegistry();
     ~ItemRegistry();
 
-    Item getItem(int);          // Will take the ID of the Item object 
+    Item getItem(int);           
     void registerItem(Item);    
 
 private:
