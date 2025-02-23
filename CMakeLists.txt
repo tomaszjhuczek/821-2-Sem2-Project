@@ -11,6 +11,8 @@ add_executable(TU821-Sem2-Project
         ItemRegistry.cpp
         StandardCrop.cpp
         StandardCrop.h
+        ChildCrop.cpp
+        ChildCrop.h
 )
 
 

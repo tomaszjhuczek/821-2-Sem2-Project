@@ -1,5 +1,6 @@
 #include "ItemRegistry.h"
 
+#include "ChildCrop.h"
 #include "StandardCrop.h"
 using namespace std;
 int main(int, char**){
@@ -13,4 +14,16 @@ int main(int, char**){
     crop1->growByOneStage();
     crop1->growByMultipleStages(7);
     cout << crop1->getGrowth() << endl;
+
+    auto *crop2 = new StandardCrop();
+    crop2->growByMultipleStages(3);
+    cout << crop2->getGrowth() << endl;
+
+    auto *crop3 = new ChildCrop(crop1, crop2);
+
+    cout << crop3->getGrowth() << endl;
+    auto *crop4 = new ChildCrop(crop3, crop1);
+
+    cout << crop4->getGrowth() << endl;
+    
 }
