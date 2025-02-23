@@ -1,8 +1,8 @@
 #ifndef ITEMREGISTRY_H
 #define ITEMREGISTRY_H
 
-#include <iostream> 
 #include "Item.h"
+#include <iostream> 
 #include <vector>
 
 using namespace std; 
@@ -24,7 +24,6 @@ public:
 
 private:
     vector<Item> ItemVector; 
-    vector<Item>::iterator registryParse; 
 };
  
 

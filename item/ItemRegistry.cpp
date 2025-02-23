@@ -5,7 +5,7 @@ ItemRegistry::ItemRegistry(){
 }
 
 ItemRegistry::~ItemRegistry(){
-
+    
 }
 
 unsigned int getitemID(Item a){

@@ -1,4 +1,6 @@
 #include "item/ItemRegistry.h"
+// #include "item/Chemical.h"
+// #include "item/Tool.h"
 #include "crop/ChildCrop.h"
 #include "crop/StandardCrop.h"
 
@@ -28,13 +30,9 @@ int main(int, char**){
 
     cout << crop4->getGrowth() << endl;
 
-    Item item1; 
-    Item item2;
-    Item item3;
+    Item item1;
     ItemRegistry registry; 
     registry.registerItem(item1);
-    registry.registerItem(item2);
-    registry.registerItem(item3);
     cout << registry.getregistryCount();
 
 };
