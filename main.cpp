@@ -1,11 +1,10 @@
-#include "ItemRegistry.h"
+#include "item/ItemRegistry.h"
+#include "crop/ChildCrop.h"
+#include "crop/StandardCrop.h"
 
-#include "ChildCrop.h"
-#include "StandardCrop.h"
 using namespace std;
 
-int ItemRegistry::registryCount = 0;    // I am confused as to why I could not place this at the top
-                                        // the ItemRegistry header file. But this works. 
+int ItemRegistry::registryCount = 0;                              
 int main(int, char**){
     cout << "Hello, from TU821-Sem2-Project!\n";
 

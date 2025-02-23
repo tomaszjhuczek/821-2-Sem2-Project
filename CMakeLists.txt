@@ -5,10 +5,10 @@ add_executable(TU821-Sem2-Project
         main.cpp
         crop/AbstractCrop.cpp
         crop/AbstractCrop.h
-        Item.h 
-        Item.cpp 
-        ItemRegistry.h 
-        ItemRegistry.cpp
+        item/Item.h 
+        item/Item.cpp 
+        item/ItemRegistry.h 
+        item/ItemRegistry.cpp
         crop/StandardCrop.cpp
         crop/StandardCrop.h
         crop/ChildCrop.cpp
