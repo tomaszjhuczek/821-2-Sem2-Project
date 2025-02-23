@@ -8,11 +8,22 @@ ItemRegistry::~ItemRegistry(){
 
 }
 
-Item ItemRegistry::getItem(int itemID){
-    
-};      
-
-
-void ItemRegistry::registerItem(Item unregisteredItem){
-    ItemVector.push_back(unregisteredItem);
+unsigned int getitemID(Item a){
+    return a.fetchitemID();
 };
+
+
+void ItemRegistry::registerItem(Item unregItem){
+    ItemVector.push_back(unregItem);    
+    registryCount++;
+};
+
+void ItemRegistry::deregisterItem(unsigned int a){
+    // ItemVector.pop_back(registeredItem);
+    registryCount--; 
+};
+
+int ItemRegistry::getregistryCount(){
+    return registryCount; 
+}
+

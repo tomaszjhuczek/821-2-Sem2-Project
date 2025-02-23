@@ -10,6 +10,8 @@ public:
     Item();
     ~Item();
 
+    unsigned int fetchitemID();
+
 private:
     string name; 
     enum ItemType {
@@ -20,7 +22,7 @@ private:
     unsigned int durability;            // assignment. 
     unsigned int maxDurability; 
     float monentaryValue; 
-
+    // static int createdItems;
 };
 
 #endif

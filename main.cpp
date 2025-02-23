@@ -3,6 +3,9 @@
 #include "ChildCrop.h"
 #include "StandardCrop.h"
 using namespace std;
+
+int ItemRegistry::registryCount = 0;    // I am confused as to why I could not place this at the top
+                                        // the ItemRegistry header file. But this works. 
 int main(int, char**){
     cout << "Hello, from TU821-Sem2-Project!\n";
 
@@ -25,5 +28,14 @@ int main(int, char**){
     auto *crop4 = new ChildCrop(crop3, crop1);
 
     cout << crop4->getGrowth() << endl;
-    
-}
+
+    Item item1; 
+    Item item2;
+    Item item3;
+    ItemRegistry registry; 
+    registry.registerItem(item1);
+    registry.registerItem(item2);
+    registry.registerItem(item3);
+    cout << registry.getregistryCount();
+
+};

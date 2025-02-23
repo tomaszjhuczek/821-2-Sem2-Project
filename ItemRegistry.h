@@ -8,18 +8,24 @@
 using namespace std; 
 using std::vector; 
 
+
 class ItemRegistry
 {
 public:
     ItemRegistry();
     ~ItemRegistry();
+          
+    void registerItem(Item); 
+    void deregisterItem(unsigned int);    
+    unsigned int getitemID(Item);
+    int getregistryCount();
 
-    Item getItem(int);           
-    void registerItem(Item);    
+    static int registryCount;
 
 private:
     vector<Item> ItemVector; 
     vector<Item>::iterator registryParse; 
 };
+ 
 
 #endif
