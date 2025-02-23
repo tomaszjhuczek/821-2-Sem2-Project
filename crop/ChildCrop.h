@@ -6,7 +6,6 @@
 #define CHILDCROP_H
 #include "StandardCrop.h"
 
-
 class ChildCrop : public StandardCrop {
 private:
     const StandardCrop *parent1;

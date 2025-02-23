@@ -8,7 +8,12 @@
 using std::string;
 
 enum Species {
-    
+    //TODO
+    WHEAT,
+    BARLEY,
+    CORN,
+    COFFEE,
+    TEA
 };
 
 

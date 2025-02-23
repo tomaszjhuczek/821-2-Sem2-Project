@@ -4,12 +4,11 @@
 
 #include "AbstractCrop.h"
 
-AbstractCrop::AbstractCrop() {
-    
+AbstractCrop::AbstractCrop() : age(0), yield(0), immunity(0), growth(0) {
+
 }
 
 AbstractCrop::~AbstractCrop() {
-    
 }
 
 string AbstractCrop::getName() {
@@ -33,9 +32,9 @@ unsigned short AbstractCrop::getGrowth() {
 }
 
 void AbstractCrop::growByOneStage() {
-    this->growth++;
+    this->age++;
 }
 
 void AbstractCrop::growByMultipleStages(const unsigned short amount) {
-    this->growth+=amount;
+    this->age+=amount;
 }

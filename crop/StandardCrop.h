@@ -8,7 +8,6 @@
 
 class StandardCrop : public AbstractCrop {
 
-
 public:
     StandardCrop();
 };
