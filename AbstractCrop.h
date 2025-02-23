@@ -13,7 +13,7 @@ enum Species {
 
 
 class AbstractCrop {
-private:
+protected:
     string name;
     int age;
     Species specimen;
