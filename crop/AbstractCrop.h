@@ -7,30 +7,22 @@
 #include <iostream>
 using std::string;
 
-enum Species {
-    //TODO
-    WHEAT,
-    BARLEY,
-    CORN,
-    COFFEE,
-    TEA
-};
-
 
 class AbstractCrop {
 protected:
     string name;
     int age;
-    Species specimen;
     unsigned short yield;
     unsigned short immunity;
     unsigned short growth;
+    bool mature;
 
 public:
     AbstractCrop();
+    AbstractCrop(unsigned short yield, unsigned short immunity, unsigned short growth);
     virtual ~AbstractCrop();
     string getName();
-    void setName(string name);
+    void setName(const string &name);
 
     unsigned short getYield();
     unsigned short getImmunity();
@@ -38,6 +30,8 @@ public:
 
     void growByOneStage();
     void growByMultipleStages(unsigned short amount);
+    
+    bool isMature();
     
 };
 

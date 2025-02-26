@@ -4,7 +4,7 @@
 
 #include "ChildCrop.h"
 
-ChildCrop::ChildCrop(StandardCrop *parent1, StandardCrop *parent2) {
+ChildCrop::ChildCrop(StandardCrop *parent1, StandardCrop *parent2) : StandardCrop() {
     this->parent1 = parent1;
     this->parent2 = parent2;
 
