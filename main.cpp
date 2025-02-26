@@ -12,23 +12,10 @@ int main(int, char**){
 
     cout << "Crop Test" << endl;
 
-    auto *crop1 = new StandardCrop();
+    auto *crop1 = new StandardCrop(Species::WHEAT);
     //TODO: Remove this after testing
-    cout << crop1->getGrowth() << endl;
-    crop1->growByOneStage();
-    crop1->growByMultipleStages(7);
-    cout << crop1->getGrowth() << endl;
-
-    auto *crop2 = new StandardCrop();
-    crop2->growByMultipleStages(3);
-    cout << crop2->getGrowth() << endl;
-
-    auto *crop3 = new ChildCrop(crop1, crop2);
-
-    cout << crop3->getGrowth() << endl;
-    auto *crop4 = new ChildCrop(crop3, crop1);
-
-    cout << crop4->getGrowth() << endl;
+    cout << crop1->getSpecies() << endl;
+    cout << crop1->getImmunity() << endl;
 
     Item item1;
     ItemRegistry registry; 

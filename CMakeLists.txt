@@ -15,6 +15,9 @@ add_executable(TU821-Sem2-Project
         crop/ChildCrop.h
         Field.cpp
         Field.h
+        Player.cpp
+        Player.h
+        crop/species.h
 )
 
 
