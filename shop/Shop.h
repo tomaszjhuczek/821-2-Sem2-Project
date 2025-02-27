@@ -1,16 +1,31 @@
 #ifndef SHOP_H
 #define SHOP_H
 
-#pragma once
+#include "../item/Chemical.h"
+#include "../item/Tool.h"
+#include <vector> 
 
 class Shop
 {
 public:
-    Shop();
+    Shop(float);
     ~Shop();
 
-private:
+    void addStock(Item*);
+    void removeStock(Item*);
+    Item* displayStock();
 
+private:
+    string name; 
+
+    vector<Item*>itemStock; 
+
+    int overallStock;
+    int chemicalStock;
+    int toolStock; 
+    float shopMoney; 
+
+    static int shopCount; 
 };
 
 #endif
