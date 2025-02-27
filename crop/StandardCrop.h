@@ -11,12 +11,21 @@
 class StandardCrop : public AbstractCrop {
 protected:
     const Species SPECIES;
-    const int MAX_AGE;
+    unsigned short yield;
+    unsigned short immunity;
+    unsigned short growth;
+
     
 public:
     StandardCrop();
-    StandardCrop(Species species);
+    explicit StandardCrop(Species species);
     StandardCrop(Species species, unsigned short yield, unsigned short immunity, unsigned short growth);
+    StandardCrop(StandardCrop *parent1, StandardCrop *parent2);
+
+
+    unsigned short getYield();
+    unsigned short getImmunity();
+    unsigned short getGrowth();
 
     string getSpecies() const;
 };

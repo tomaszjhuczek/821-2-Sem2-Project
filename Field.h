@@ -11,7 +11,7 @@
 class Field {
 
 protected:
-    AbstractCrop* field[7][7];
+    StandardCrop* field[7][7];
 
 public:
     Field();

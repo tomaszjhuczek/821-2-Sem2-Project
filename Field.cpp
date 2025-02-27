@@ -13,7 +13,7 @@ Field::Field() {
 }
 
 bool Field::plantStandardCrop(int x, int y) {
-    if (&field[x][y] == nullptr) { //Check if slot is occupied
+    if (field[x][y] == nullptr) { //Check if slot is occupied
         this->field[x][y] = new StandardCrop();
         return true; //Success
     } else {
@@ -21,8 +21,8 @@ bool Field::plantStandardCrop(int x, int y) {
     }
 }
 
-bool Field::plantStandardCrop(int x, int y, Species specimen) {
-
+bool Field::plantStandardCrop(int x, int y, Species specimen){
+    
 }
 
 bool Field::crossBreed(int x, int y) {
@@ -30,14 +30,14 @@ bool Field::crossBreed(int x, int y) {
 }
 
 bool Field::tryToKill(int x, int y) { // Get a crop and then calculate the chance for it to die
-    if (&field[x][y] == nullptr) {
+    if (field[x][y] == nullptr) {
         return false; //Fail: No Crop Located
     }
-    AbstractCrop *crop = field[x][y];
+    StandardCrop *crop = field[x][y];
     int immunity = crop->getImmunity(); //Get immunity of the crop
 
     //Calculate if the crop dies
-    int chance = ((0.511*std::pow(immunity, 2)) - (13.716 * immunity) + (96.250));
+    int chance = floor(((0.511*std::pow(immunity, 2)) - (13.716 * immunity) + (96.250)));
     srand((unsigned)time(0));
     int roll = (rand()%100)+1l;
 

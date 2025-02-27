@@ -12,26 +12,21 @@ class AbstractCrop {
 protected:
     string name;
     int age;
-    unsigned short yield;
-    unsigned short immunity;
-    unsigned short growth;
+    int maxAge;
     bool mature;
 
 public:
     AbstractCrop();
-    AbstractCrop(unsigned short yield, unsigned short immunity, unsigned short growth);
+    explicit AbstractCrop(int maxAge);
     virtual ~AbstractCrop();
     string getName();
     void setName(const string &name);
+    bool checkIfMature();
 
-    unsigned short getYield();
-    unsigned short getImmunity();
-    unsigned short getGrowth();
 
-    void growByOneStage();
-    void growByMultipleStages(unsigned short amount);
+    void grow();
+    void grow(unsigned short amount);
     
-    bool isMature();
     
 };
 
