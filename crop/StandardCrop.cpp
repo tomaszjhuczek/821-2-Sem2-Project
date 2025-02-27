@@ -4,15 +4,39 @@
 
 #include "StandardCrop.h"
 
-StandardCrop::StandardCrop() : AbstractCrop(), SPECIES(UNKNOWN), MAX_AGE(speciesMaxAge(UNKNOWN)) {
+int calculateMaxAge(Species species) {
+
+    int maxPossibleAge = speciesMaxAge(species);
+    
 }
 
-StandardCrop::StandardCrop(const Species species) : AbstractCrop(), SPECIES(species), MAX_AGE(speciesMaxAge(species)) {
+StandardCrop::StandardCrop() : AbstractCrop(), SPECIES(UNKNOWN), growth(0), yield(0), immunity(0) {
+    
+}
+
+StandardCrop::StandardCrop(const Species species) : AbstractCrop(), SPECIES(species) {
+}
+
+StandardCrop::StandardCrop(StandardCrop *parent1, StandardCrop *parent2): SPECIES(/*do Algorithm here*/) {
 }
 
 StandardCrop::StandardCrop(Species species, unsigned short yield, unsigned short immunity, unsigned short growth)
-: AbstractCrop(yield,immunity,growth), SPECIES(species), MAX_AGE(speciesMaxAge(species)) {
+: AbstractCrop(), SPECIES(species), growth(growth), yield(yield), immunity(immunity){
 }
+
+unsigned short StandardCrop::getYield() {
+    return this->yield;
+}
+
+unsigned short StandardCrop::getImmunity() {
+    return this->immunity;
+}
+
+unsigned short StandardCrop::getGrowth() {
+    return this->growth;
+}
+
+
 
 string StandardCrop::getSpecies() const {
     return speciesToString(this->SPECIES);

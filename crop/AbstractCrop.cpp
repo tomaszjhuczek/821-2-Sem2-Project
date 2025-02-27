@@ -7,18 +7,13 @@
 
 
 
-AbstractCrop::AbstractCrop() : age(0), yield(0), immunity(0), growth(0) {
-
+AbstractCrop::AbstractCrop() : age(0), maxAge(10), mature(false) {
 }
 
-AbstractCrop::AbstractCrop(unsigned short yield, unsigned short immunity, unsigned short growth)
-: age(0), yield(yield), immunity(immunity), growth(growth) { //Why are initializer lists superior again?
-
+AbstractCrop::AbstractCrop(int maxAge): age(0), maxAge(maxAge), mature(false) {
 }
 
-AbstractCrop::~AbstractCrop() {
-
-}
+AbstractCrop::~AbstractCrop() = default;
 
 string AbstractCrop::getName() {
     return this->name;
@@ -28,26 +23,20 @@ void AbstractCrop::setName(const string &name) {
     this->name = name;
 }
 
-unsigned short AbstractCrop::getYield() {
-    return this->yield;
-}
 
-unsigned short AbstractCrop::getImmunity() {
-    return this->immunity;
-}
-
-unsigned short AbstractCrop::getGrowth() {
-    return this->growth;
-}
-
-void AbstractCrop::growByOneStage() {
+void AbstractCrop::grow() {
     this->age++;
 }
 
-bool AbstractCrop::isMature() {
-    return this->mature;
+void AbstractCrop::grow(const unsigned short amount) {
+    this->age+=amount;
 }
 
-void AbstractCrop::growByMultipleStages(const unsigned short amount) {
-    this->age+=amount;
+bool AbstractCrop::checkIfMature() {
+    if (this->age >= this->maxAge) {
+        this->mature = true;
+    }
+
+    return this->mature;
+
 }
