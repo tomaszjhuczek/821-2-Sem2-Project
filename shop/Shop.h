@@ -13,19 +13,19 @@ public:
 
     void addStock(Item*);
     void removeStock(Item*);
-    Item* displayStock();
+    void displayStock();
 
 private:
     string name; 
 
     vector<Item*>itemStock; 
 
-    int overallStock;
-    int chemicalStock;
-    int toolStock; 
+    int overallStock;    
+    int chemicalStock;  
+    int toolStock;      
     float shopMoney; 
 
-    static int shopCount; 
+    static int shopCount; // Keeps track of active shops 
 };
 
 #endif

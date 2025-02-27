@@ -2,10 +2,10 @@
 
 Tool::Tool()
 {
-
+    // Item* itemTracker; 
 }
 
 Tool::~Tool()
 {
-
+    
 }

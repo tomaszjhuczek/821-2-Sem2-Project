@@ -1,17 +1,14 @@
 #include "Item.h"
 
-int Item::createdItems = 0; 
+int Item::itemsCount = 0; 
 
 Item::Item()
 {
-    createdItems++;
+    itemsCount++;
 }
 
 Item::~Item()
 {
-    createdItems--; 
+    itemsCount--; 
 }
 
-/* unsigned int Item::fetchitemID(){   
-    return itemID;                  
-}; */

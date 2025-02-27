@@ -10,16 +10,16 @@ public:
     Item();
     ~Item();
 
-
-
 private:
     string name; 
              
     unsigned int durability;            
-    unsigned int maxDurability;         
+    unsigned int maxDurability;      
     float monentaryValue; 
     
-    static int createdItems;
+    static int itemsCount;
+ //   static vector<Item*>createdItems;
+
 };
 
 #endif
