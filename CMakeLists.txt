@@ -7,16 +7,16 @@ add_executable(TU821-Sem2-Project
         crop/AbstractCrop.h
         item/Item.h 
         item/Item.cpp 
-        item/ItemRegistry.h 
-        item/ItemRegistry.cpp
+        player/Player.h
+        player/Player.cpp
+        shop/Shop.h 
+        shop/Shop.cpp 
         crop/StandardCrop.cpp
         crop/StandardCrop.h
         crop/ChildCrop.cpp
         crop/ChildCrop.h
         Field.cpp
         Field.h
-        Player.cpp
-        Player.h
         crop/species.h
 )
 

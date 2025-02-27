@@ -2,8 +2,6 @@
 // Created by tomasz on 26.02.25.
 //
 
-#include "Player.h"// Player.cpp
-
 #include "Player.h"
 
 // Define the static member variable
@@ -40,11 +38,9 @@ void Player::setMoney(int amount) {
     this->money=amount;
 }
 
-bool Player::addTool(ItemRegistry tool) {
-}
+// bool Player::addTool(ItemRegistry tool) {}
 
-bool Player::removeTool(ItemRegistry tool) {
-}
+// bool Player::removeTool(ItemRegistry tool) {}
 
 unsigned int Player::getPlayerCount() {
     return Player::playerCount;
