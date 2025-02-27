@@ -2,7 +2,6 @@
 #include "item/Chemical.h"
 #include "item/Tool.h"
 #include "shop/Shop.h"
-#include "crop/ChildCrop.h"
 #include "crop/StandardCrop.h"
 
 using namespace std;
