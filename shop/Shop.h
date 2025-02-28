@@ -11,18 +11,21 @@ public:
     Shop(float);
     ~Shop();
 
-    void addStock(Item*);
-    void removeStock(Item*);
-    void displayStock();
+    void addchemStock(Chemical);
+    void removechemStock(Chemical);
+    void addtoolStock(Tool);
+    void removetoolStock(Tool);
+    // Chemical displaychemStock();
 
 private:
     string name; 
 
-    vector<Item*>itemStock; 
+    vector<Chemical>chemStock; 
+    vector<Tool>toolStock; 
 
-    int overallStock;    
-    int chemicalStock;  
-    int toolStock;      
+    int overallstockCount;    
+    int chemstockCount;  
+    int toolstockCount;      
     float shopMoney; 
 
     static int shopCount; // Keeps track of active shops 

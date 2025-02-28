@@ -9,7 +9,7 @@ public:
     ~Chemical();
 
 private:
-
+    friend bool operator==(const Chemical &inst1, const Chemical &inst2);
 };
 
 #endif

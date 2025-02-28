@@ -10,6 +10,10 @@ public:
     Item();
     ~Item();
 
+    unsigned int getDurability();
+    unsigned int getMaxDurability();
+    float getMonetaryValue();
+
 private:
     string name; 
              
@@ -18,8 +22,8 @@ private:
     float monentaryValue; 
     
     static int itemsCount;
- //   static vector<Item*>createdItems;
 
+    // friend ostream& operator<< (ostream &ostr, const Item &itemInst);
 };
 
 #endif
