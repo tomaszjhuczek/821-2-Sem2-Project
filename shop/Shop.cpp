@@ -21,6 +21,15 @@ void Shop::addchemStock(Chemical &newStock){
 };
 
 void Shop::removechemStock(Chemical &oldStock){
+    for(int i = 0; i++; i<chemStock.size()){
+        if(chemStock.at(i) == oldStock){
+            chemStock.erase(chemStock.begin()+i);
+        }
+    }
+};
+
+
+/* void Shop::removechemStock(Chemical &oldStock){
     Chemical *ptr1, *ptr2; 
     ptr1 = &oldStock;
 
@@ -32,7 +41,7 @@ void Shop::removechemStock(Chemical &oldStock){
     }
 };
 
-/*Chemical Shop::displaychemStock(){
+Chemical Shop::displaychemStock(){
     for(int i = 0; i++; i<chemStock.size()){
         return chemStock.at(i);      
     }

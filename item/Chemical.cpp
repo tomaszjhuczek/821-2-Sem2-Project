@@ -10,7 +10,7 @@ Chemical::~Chemical()
 
 }
 
-/*bool operator==(const Chemical &inst1, const Chemical &inst2){
+bool operator==(const Chemical &inst1, const Chemical &inst2){
     const Chemical * ptr1;
     const Chemical * ptr2;
     
@@ -18,4 +18,4 @@ Chemical::~Chemical()
     ptr2 = &inst2; 
 
     return *ptr1 == *ptr2;
-}*/
+}
