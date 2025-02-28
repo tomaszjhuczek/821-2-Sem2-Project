@@ -7,6 +7,10 @@ add_executable(TU821-Sem2-Project
         crop/AbstractCrop.h
         item/Item.h 
         item/Item.cpp 
+        item/Chemical.cpp 
+        item/Chemical.h 
+        item/Tool.cpp 
+        item/Tool.h
         player/Player.h
         player/Player.cpp
         shop/Shop.h 

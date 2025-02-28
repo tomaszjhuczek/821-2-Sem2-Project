@@ -11,8 +11,8 @@ public:
     Shop(float);
     ~Shop();
 
-    void addchemStock(Chemical);
-    void removechemStock(Chemical);
+    void addchemStock(Chemical&newStock);
+    void removechemStock(Chemical&oldStock);
     void addtoolStock(Tool);
     void removetoolStock(Tool);
     // Chemical displaychemStock();
