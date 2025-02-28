@@ -6,6 +6,8 @@
 
 using namespace std;
 
+int currentTurn = 1; 
+
 int main(int, char**){
     cout << "Hello, from TU821-Sem2-Project!\n";
 

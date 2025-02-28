@@ -28,7 +28,6 @@ void Shop::removechemStock(Chemical &oldStock){
     }
 };
 
-
 /* void Shop::removechemStock(Chemical &oldStock){
     Chemical *ptr1, *ptr2; 
     ptr1 = &oldStock;

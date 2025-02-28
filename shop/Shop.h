@@ -11,11 +11,17 @@ public:
     Shop(float);
     ~Shop();
 
-    void addchemStock(Chemical&newStock);
-    void removechemStock(Chemical&oldStock);
-    void addtoolStock(Tool);
-    void removetoolStock(Tool);
-    // Chemical displaychemStock();
+    void supply();
+
+    void addchemStock(Chemical&);
+    void removechemStock(Chemical&);
+    void displaychemStock();
+
+    void addtoolStock(Tool&);
+    void removetoolStock(Tool&);
+    void displaytoolStock();    // These definitions need to be copied from those of the chemicals.
+    
+    // Have considered using Item pointers to refer to child objects. Not a priority at the moment. 
 
 private:
     string name; 
