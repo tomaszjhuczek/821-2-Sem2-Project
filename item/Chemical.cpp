@@ -1,6 +1,6 @@
 #include "Chemical.h"
 
-Chemical::Chemical()
+Chemical::Chemical(): growthMultiplier(1), immunityMultiplier(1), yieldMultiplier(1), poison(0)
 {
     
 }
@@ -8,6 +8,14 @@ Chemical::Chemical()
 Chemical::~Chemical()
 {
 
+}
+
+void Chemical::useChemical(){
+    int doesNothing = 0; 
+    if(poison = 1){
+        doesNothing = 2;
+    }
+    else doesNothing = 1; 
 }
 
 bool operator==(const Chemical &inst1, const Chemical &inst2){
@@ -23,6 +31,7 @@ bool operator==(const Chemical &inst1, const Chemical &inst2){
 ostream& operator<< (ostream &ostr, const Chemical &inst1){
     ostr << "\nName: " << inst1.name;
     ostr << "\nDurability: [" << inst1.durability << "/" << inst1.maxDurability << "]";
+    ostr << "\nValue: $" << inst1.monentaryValue;
     return ostr;
 }
 

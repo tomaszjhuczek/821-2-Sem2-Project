@@ -8,9 +8,17 @@ public:
     Chemical();
     ~Chemical();
 
+    void useChemical();
+
 private:
-    friend bool operator==(const Chemical &inst1, const Chemical &inst2);
+
+    float growthMultiplier; 
+    float immunityMultiplier;
+    float yieldMultiplier;
     
+    bool poison;             
+
+    friend bool operator==(const Chemical &inst1, const Chemical &inst2);
     friend ostream& operator<< (ostream &ostr, const Chemical &inst1);
 };
 

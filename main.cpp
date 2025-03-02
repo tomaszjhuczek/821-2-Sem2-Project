@@ -20,7 +20,11 @@ int main(int, char**){
 
     delete crop1; 
 
-    Chemical chem1;
+    Chemical chem1, chem2;
+    chem1.setMaxDurability(5);
+    chem1.setDurability(5);
+    chem1.setMonetaryValue(-1);
+    chem1.setItemName("PLANT EXECUTOR");
     cout << chem1;
 
 };
