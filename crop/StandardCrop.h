@@ -7,17 +7,16 @@
 #include "AbstractCrop.h"
 #include "species.h"
 
-
+// public class StandardCrop extends AbstractCrop //would be nicer
 class StandardCrop : public AbstractCrop {
 protected:
-    const Species species;
+    const Species SPECIES;
     unsigned short yield;
     unsigned short immunity;
     unsigned short growth;
 
     
 public:
-
     
     StandardCrop();
     explicit StandardCrop(Species species);

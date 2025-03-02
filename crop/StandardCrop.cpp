@@ -13,15 +13,15 @@ int calculateMaxAge(Species species) {
 }
 
 
-StandardCrop::StandardCrop() : AbstractCrop(calculateMaxAge(DEFAULT_SPECIES)), species(DEFAULT_SPECIES), yield(1), immunity(1), growth(1) {
+StandardCrop::StandardCrop() : AbstractCrop(calculateMaxAge(DEFAULT_SPECIES)), SPECIES(DEFAULT_SPECIES), yield(1), immunity(1), growth(1) {//Default, do not use outside of testing
     
 }
 
-StandardCrop::StandardCrop(const Species species) : AbstractCrop(calculateMaxAge(species)), species(species), yield(1), immunity(1), growth(1) {
+StandardCrop::StandardCrop(const Species species) : AbstractCrop(calculateMaxAge(species)), SPECIES(species), yield(1), immunity(1), growth(1) {//Set the species basic crop
     
 }
 
-StandardCrop::StandardCrop(StandardCrop *parent1, StandardCrop *parent2) : species(parent1->getSpecies()) {
+StandardCrop::StandardCrop(StandardCrop *parent1, StandardCrop *parent2) : SPECIES(parent1->getSpecies()) {//Crossbreed two crops
 
     //TODO: Crossbreeding Algorithm, following is temporary
 
@@ -40,9 +40,10 @@ StandardCrop::StandardCrop(StandardCrop *parent1, StandardCrop *parent2) : speci
 }
 
 StandardCrop::StandardCrop(const Species species, const unsigned short yield, const unsigned short immunity, const unsigned short growth)
-: species(species), yield(yield), immunity(immunity), growth(growth){
+: SPECIES(species), yield(yield), immunity(immunity), growth(growth){ //Custom crop, should be only used for testing
 }
 
+//Getters and setters should be self-explanatory
 unsigned short StandardCrop::getYield() const {
     return this->yield;
 }
@@ -56,14 +57,14 @@ unsigned short StandardCrop::getGrowth() const {
 }
 
 Species StandardCrop::getSpecies() const {
-    return this->species;
+    return this->SPECIES;
 }
 
 string StandardCrop::getSpeciesAsString() const {
-    return speciesToString(this->species);
+    return speciesToString(this->SPECIES);
 }
 
-void StandardCrop::showDetails() {
+void StandardCrop::showDetails() {//DEBUG: Print details to console
     using std::cout, std::endl;
     cout << "Info for Crop: " << this << endl
         << "Growth" << this->getGrowth() << endl

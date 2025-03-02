@@ -5,6 +5,8 @@
 #ifndef SPECIES_H
 #define SPECIES_H
 
+
+//Species enum. Again uses Java syntax
 enum Species {
     //TODO
     DEFAULT_SPECIES,
@@ -26,7 +28,7 @@ inline std::string speciesToString(Species species) { //Convert from enum index 
     }
 }
 
-inline int speciesMaxAge(Species species) {
+inline int speciesMaxAge(Species species) { //Return the max age for a given species
     switch (species) {
         case WHEAT: return 20;
         case BARLEY: return 23;
