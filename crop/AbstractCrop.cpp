@@ -4,13 +4,19 @@
 
 #include "AbstractCrop.h"
 
+int AbstractCrop::amountOfCrops = 0;
 
 
-
-AbstractCrop::AbstractCrop() : age(0), maxAge(10), mature(false) {
+int AbstractCrop::getTotalCrops() {
+    return AbstractCrop::amountOfCrops;
 }
 
-AbstractCrop::AbstractCrop(int maxAge): age(0), maxAge(maxAge), mature(false) {
+AbstractCrop::AbstractCrop() : age(0), MAX_AGE(10), mature(false) {
+    amountOfCrops++;
+}
+
+AbstractCrop::AbstractCrop(int maxAge): age(0), MAX_AGE(maxAge), mature(false) {
+    amountOfCrops--;
 }
 
 AbstractCrop::~AbstractCrop() = default;
@@ -23,17 +29,22 @@ void AbstractCrop::setName(const string &name) {
     this->name = name;
 }
 
+int AbstractCrop::getAge() {
+    return this->age;
+}
 
 void AbstractCrop::grow() {
     this->age++;
 }
 
 void AbstractCrop::grow(const unsigned short amount) {
-    this->age+=amount;
+    if (this->age <= MAX_AGE) {
+        this->age+=amount;
+    }
 }
 
 bool AbstractCrop::checkIfMature() {
-    if (this->age >= this->maxAge) {
+    if (this->age >= this->MAX_AGE) {
         this->mature = true;
     }
 

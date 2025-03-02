@@ -10,24 +10,29 @@
 
 class StandardCrop : public AbstractCrop {
 protected:
-    const Species SPECIES;
+    const Species species;
     unsigned short yield;
     unsigned short immunity;
     unsigned short growth;
 
     
 public:
+
+    
     StandardCrop();
     explicit StandardCrop(Species species);
     StandardCrop(Species species, unsigned short yield, unsigned short immunity, unsigned short growth);
     StandardCrop(StandardCrop *parent1, StandardCrop *parent2);
 
+    void showDetails() override;
 
-    unsigned short getYield();
-    unsigned short getImmunity();
-    unsigned short getGrowth();
 
-    string getSpecies() const;
+    unsigned short getYield() const;
+    unsigned short getImmunity() const;
+    unsigned short getGrowth() const;
+
+    Species getSpecies() const;
+    string getSpeciesAsString() const;
 };
 
 #endif //STANDARDCROP_H

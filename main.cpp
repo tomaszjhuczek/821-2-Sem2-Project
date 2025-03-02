@@ -1,3 +1,4 @@
+#include "Field.h"
 #include "item/Item.h"
 #include "item/Chemical.h"
 #include "item/Tool.h"
@@ -35,4 +36,14 @@ int main(int, char**){
     shop1.addchemStock(chem2);
     shop1.displaychemStock();
 
+    Chemical *chemical1 = new Chemical();
+    Chemical *chemical2 = chemical1;
+
+    cout << (&chemical1 == &chemical2) << endl;
+
+    auto testfield = new Field();
+
+    testfield->plantStandardCrop(2,2,WHEAT) ? cout << "Success\n" : cout << "Fail\n";
+    testfield->tick();
+    testfield->getInfo(2,2);
 };

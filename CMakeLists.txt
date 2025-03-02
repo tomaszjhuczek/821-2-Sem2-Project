@@ -1,5 +1,7 @@
-cmake_minimum_required(VERSION 3.5.0)
+cmake_minimum_required(VERSION 3.10.0)
 project(TU821-Sem2-Project VERSION 0.1.0 LANGUAGES C CXX)
+
+#find_package(SQLite3 REQUIRED) TODO: implement this
 
 add_executable(TU821-Sem2-Project 
         main.cpp
@@ -20,6 +22,16 @@ add_executable(TU821-Sem2-Project
         Field.cpp
         Field.h
         crop/species.h
+        item/Chemical.cpp
+        item/Chemical.h
+        item/Tool.cpp
+        item/Tool.h
+        crop/SpecialCrop.h
+        crop/SpecialCrop.cpp
+        crop/ability.h
 )
 
+#target_link_libraries(TU821-Sem2-Project
+#        SQLite3
+#)
 
