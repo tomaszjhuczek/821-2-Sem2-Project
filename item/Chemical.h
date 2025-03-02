@@ -18,10 +18,8 @@ private:
     float growthMultiplier; 
     float immunityMultiplier;
     float yieldMultiplier;
-    int turnLength;  
+    int turnLength;             // How long a chemical is effective for. 
     
-
-
     bool poison;
     
     // If true, the chemical in question has malicious properties on crops (aka negative Multipliers).
