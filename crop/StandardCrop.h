@@ -1,6 +1,6 @@
 //
 // Created by tomasz on 20/02/25.
-//
+//virtual void showDetails() = 0;
 
 #ifndef STANDARDCROP_H
 #define STANDARDCROP_H
@@ -9,7 +9,7 @@
 
 // public class StandardCrop extends AbstractCrop //would be nicer
 class StandardCrop : public AbstractCrop {
-protected:
+private:
     const Species SPECIES;
     unsigned short yield;
     unsigned short immunity;
