@@ -12,7 +12,7 @@ Chemical::~Chemical()
 
 void Chemical::useChemical(){
     int doesNothing = 0; 
-    if(poison = 1){
+    if(poison == 1){
         doesNothing = 2;
     }
     else doesNothing = 1; 
