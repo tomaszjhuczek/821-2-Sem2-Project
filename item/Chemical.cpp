@@ -16,7 +16,9 @@ void Chemical::useChemical(){
         doesNothing = 2;
     }
     else doesNothing = 1; 
-}
+}                               
+
+// Placeholder code.
 
 void Chemical::setYieldMultiplier(float newYieldMultiplier){
     if(newYieldMultiplier < 0 ){
@@ -35,11 +37,17 @@ bool operator==(const Chemical &inst1, const Chemical &inst2){
     return *ptr1 == *ptr2;
 }
 
+// Compares the contents of the addresses of two Chemical objects 
+// to test if they are equal.
+
 ostream& operator<< (ostream &ostr, const Chemical &inst1){
     ostr << "\nName: " << inst1.name;
-    ostr << "\nDurability: " << inst1.maxDurability << " UP";   // "Use Points" --> alternative to "Hit Points" used to describe durability of tool
+    ostr << "\nDurability: " << inst1.maxDurability << " UP";   
     ostr << "\nValue: $" << inst1.monentaryValue; 
     ostr << "\nMultipliers:\n" << "\tYield: x" << setprecision(3) << inst1.yieldMultiplier << "\n";
     return ostr;
 }
+
+// UP stands for "Use Points", this is the alternative term to "Hit Points" (HP) which describes
+// the durability of a tool.
 
