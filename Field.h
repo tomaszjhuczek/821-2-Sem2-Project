@@ -4,23 +4,25 @@
 
 #ifndef FIELD_H
 #define FIELD_H
-#include "crop/AbstractCrop.h"
 #include "crop/StandardCrop.h"
 
-
+constexpr int MAX_FIELD_SIZE = 7;
 class Field {
 
 protected:
-    StandardCrop* field[7][7];
+    AbstractCrop* field[MAX_FIELD_SIZE][MAX_FIELD_SIZE];
 
 public:
     Field();
-
+    
     bool plantStandardCrop(int x, int y);
     bool plantStandardCrop(int x, int y, Species specimen);
     bool crossBreed(int x, int y);
-    void tick();
+    void tick() const;
     bool tryToKill(int x, int y);
+    bool harvest(int x, int y);
+    void getInfo(int x, int y);
+    //TODO: Implement methods that interact with all parameters in crops
 };
 
 

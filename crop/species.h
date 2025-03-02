@@ -7,7 +7,7 @@
 
 enum Species {
     //TODO
-    UNKNOWN,
+    DEFAULT_SPECIES,
     WHEAT,
     BARLEY,
     CORN,
