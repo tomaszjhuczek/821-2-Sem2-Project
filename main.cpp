@@ -18,4 +18,9 @@ int main(int, char**){
     cout << crop1->getSpecies() << endl;
     cout << crop1->getImmunity() << endl;
 
+    delete crop1; 
+
+    Chemical chem1;
+    cout << chem1;
+
 };

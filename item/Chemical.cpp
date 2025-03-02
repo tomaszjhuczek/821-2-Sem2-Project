@@ -2,7 +2,7 @@
 
 Chemical::Chemical()
 {
-    // Item* itemTracker; 
+    
 }
 
 Chemical::~Chemical()
@@ -19,3 +19,10 @@ bool operator==(const Chemical &inst1, const Chemical &inst2){
 
     return *ptr1 == *ptr2;
 }
+
+ostream& operator<< (ostream &ostr, const Chemical &inst1){
+    ostr << "\nName: " << inst1.name;
+    ostr << "\nDurability: [" << inst1.durability << "/" << inst1.maxDurability << "]";
+    return ostr;
+}
+
