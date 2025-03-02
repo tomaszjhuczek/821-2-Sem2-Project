@@ -27,4 +27,12 @@ int main(int, char**){
     chem1.setItemName("PLANT EXECUTOR");
     cout << chem1;
 
+    chem2.setItemName("plant healer");
+    chem2.setYieldMultiplier(1.256);
+
+    Shop shop1; 
+    shop1.addchemStock(chem1);
+    shop1.addchemStock(chem2);
+    shop1.displaychemStock();
+
 };

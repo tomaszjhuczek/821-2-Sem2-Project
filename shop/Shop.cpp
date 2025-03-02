@@ -2,13 +2,14 @@
 
 int Shop::shopCount = 0; 
 
-Shop::Shop(float initialMoney)
+Shop::Shop(): overallstockCount(0), chemstockCount(0), toolstockCount(0), shopMoney(1000)
+{
+
+}
+
+Shop::Shop(float initialMoney): overallstockCount(0), chemstockCount(0), toolstockCount(0), shopMoney(initialMoney)
 {
     shopCount++; 
-    overallstockCount = 0;    
-    chemstockCount = 0;  
-    toolstockCount = 0;   
-    shopMoney = initialMoney;
 }
 
 Shop::~Shop()
@@ -18,18 +19,20 @@ Shop::~Shop()
 
 void Shop::addchemStock(Chemical &newStock){
     chemStock.push_back(newStock);
+    chemstockCount++; 
 };
 
 void Shop::removechemStock(Chemical &oldStock){
     for(int i = 0; i++; i<chemStock.size()){
         if(chemStock.at(i) == oldStock){
             chemStock.erase(chemStock.begin()+i);
+            chemstockCount--; 
         }
     }
 };
-
+ 
 void Shop::displaychemStock(){
-    for(int i = 0; i++; i<chemStock.size()){
-        cout << chemStock.at(i) << endl;      
+    for(int i = 0; i<chemStock.size(); i++){
+        cout << "\n" << chemStock.at(i) << "yada";     
     }
 }

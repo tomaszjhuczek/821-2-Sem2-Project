@@ -8,6 +8,7 @@
 class Shop
 {
 public:
+    Shop(); 
     Shop(float);
     ~Shop();
 

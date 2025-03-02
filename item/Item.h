@@ -2,6 +2,7 @@
 #define ITEM_H
 
 #include <iostream>
+#include <iomanip>
 using namespace std; 
 
 class Item
@@ -9,6 +10,9 @@ class Item
 public:
     Item();
     ~Item();
+
+    string getItemName(){return name;}
+    void setItemName(string newName);
 
     unsigned int getDurability(){return durability;}
     void setDurability(unsigned int newDurability);
@@ -18,9 +22,6 @@ public:
 
     float getMonetaryValue(){return monentaryValue;}
     void setMonetaryValue(float newMonetaryValue);
-
-    string getItemName(){return name;}
-    void setItemName(string newName);
 
 protected:
     string name; 

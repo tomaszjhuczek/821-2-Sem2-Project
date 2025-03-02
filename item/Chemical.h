@@ -10,12 +10,15 @@ public:
 
     void useChemical();
 
+    float getYieldMultiplier(){return yieldMultiplier;}
+    void setYieldMultiplier(float newYieldMultiplier);
+
 private:
 
     float growthMultiplier; 
     float immunityMultiplier;
     float yieldMultiplier;
-    
+
     bool poison;             
 
     friend bool operator==(const Chemical &inst1, const Chemical &inst2);
