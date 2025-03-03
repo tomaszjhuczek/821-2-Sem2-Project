@@ -59,7 +59,7 @@ bool Field::tryToKill(int x, int y) { // Get a crop and then calculate the chanc
     return false; //Fail otherwise
 }
 
-bool Field::harvest(int x, int y) {
+bool Field::harvest(int x, int y) {//Harvest crop
 
     if (field[x][y] == nullptr) {
         return false;
@@ -69,11 +69,11 @@ bool Field::harvest(int x, int y) {
     return true;
 }
 
-void Field::getInfo(int x, int y) {
+void Field::getInfo(int x, int y) {//Return info for given coordinates
     field[x][y]->showDetails();
 }
 
-void Field::tick() const {
+void Field::tick() const {//Tick entire grid
     // Run each slot in the field
     //TODO: Make this nicer
     for (int x = 0; x < MAX_FIELD_SIZE; ++x) {

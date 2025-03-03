@@ -1,23 +1,22 @@
 //
 // Created by tomasz on 20/02/25.
-//
+//virtual void showDetails() = 0;
 
 #ifndef STANDARDCROP_H
 #define STANDARDCROP_H
 #include "AbstractCrop.h"
 #include "species.h"
 
-
+// public class StandardCrop extends AbstractCrop //would be nicer
 class StandardCrop : public AbstractCrop {
-protected:
-    const Species species;
+private:
+    const Species SPECIES;
     unsigned short yield;
     unsigned short immunity;
     unsigned short growth;
 
     
 public:
-
     
     StandardCrop();
     explicit StandardCrop(Species species);
