@@ -8,8 +8,10 @@ public:
     Chemical();
     ~Chemical();
 
-    void useChemical();
-
+    float getGrowthMultiplier(){return growthMultiplier;}
+    void setGrowthMultiplier(float newGrowthMultiplier);
+    float getImmunityMultiplier(){return immunityMultiplier;}
+    void setImmunityMultiplier(float newImmunityMultiplier);
     float getYieldMultiplier(){return yieldMultiplier;}
     void setYieldMultiplier(float newYieldMultiplier);
 
@@ -17,14 +19,13 @@ private:
 
     float growthMultiplier; 
     float immunityMultiplier;
-    float yieldMultiplier;
-    int turnLength;             // How long a chemical is effective for. 
-    
-    bool poison;
-    
+    float yieldMultiplier;       
+    float quantity;      
+    int turnLength;             // How long a chemical is effective for ... will be based on 
+    bool poison;                // how much of a chemical is used. 
+
     // If true, the chemical in question has malicious properties on crops (aka negative Multipliers).
     // If false, the chemical has benefical properties (positive Multipliers).
-    // Grow is calculated by multiplying the 
 
     friend bool operator==(const Chemical &inst1, const Chemical &inst2);
     friend ostream& operator<< (ostream &ostr, const Chemical &inst1);

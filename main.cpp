@@ -30,6 +30,7 @@ int main(int, char**){
 
     chem2.setItemName("plant healer");
     chem2.setYieldMultiplier(1.256);
+    chem2.setImmunityMultiplier(1.76);
 
     Shop shop1; 
     shop1.addchemStock(chem1);

@@ -33,6 +33,6 @@ void Shop::removechemStock(Chemical &oldStock){
  
 void Shop::displaychemStock(){
     for(int i = 0; i<chemStock.size(); i++){
-        cout << "\n" << chemStock.at(i) << "yada";     
+        cout << "\n" << chemStock.at(i);     
     }
 }
