@@ -4,7 +4,7 @@
 
 #include "StandardCrop.h"
 
-int calculateMaxAge(Species species) {
+int calculateMaxAge(Species::Species species) {
     //TODO: Implement algorithm for calculating age
 
     return 10;
@@ -13,11 +13,11 @@ int calculateMaxAge(Species species) {
 }
 
 
-StandardCrop::StandardCrop() : AbstractCrop(calculateMaxAge(DEFAULT_SPECIES)), SPECIES(DEFAULT_SPECIES), yield(1), immunity(1), growth(1) {//Default, do not use outside of testing
+StandardCrop::StandardCrop() : AbstractCrop(calculateMaxAge(Species::DEFAULT_SPECIES)), SPECIES(Species::DEFAULT_SPECIES), yield(1), immunity(1), growth(1) {//Default, do not use outside of testing
     
 }
 
-StandardCrop::StandardCrop(const Species species) : AbstractCrop(calculateMaxAge(species)), SPECIES(species), yield(1), immunity(1), growth(1) {//Set the species basic crop
+StandardCrop::StandardCrop(const Species::Species species) : AbstractCrop(calculateMaxAge(species)), SPECIES(species), yield(1), immunity(1), growth(1) {//Set the species basic crop
     
 }
 
@@ -39,7 +39,7 @@ StandardCrop::StandardCrop(StandardCrop *parent1, StandardCrop *parent2) : SPECI
     
 }
 
-StandardCrop::StandardCrop(const Species species, const unsigned short yield, const unsigned short immunity, const unsigned short growth)
+StandardCrop::StandardCrop(const Species::Species species, const unsigned short yield, const unsigned short immunity, const unsigned short growth)
 : SPECIES(species), yield(yield), immunity(immunity), growth(growth){ //Custom crop, should be only used for testing
 }
 
@@ -56,7 +56,7 @@ unsigned short StandardCrop::getGrowth() const {
     return this->growth;
 }
 
-Species StandardCrop::getSpecies() const {
+Species::Species StandardCrop::getSpecies() const {
     return this->SPECIES;
 }
 
@@ -67,6 +67,7 @@ string StandardCrop::getSpeciesAsString() const {
 void StandardCrop::showDetails() {//DEBUG: Print details to console
     using std::cout, std::endl;
     cout << "Info for Crop: " << this << endl
+        << "Species: " << this->getSpeciesAsString() << endl
         << "Growth" << this->getGrowth() << endl
         << "Yield" << this->getYield() << endl
         << "Immunity" << this->getImmunity() << endl

@@ -10,7 +10,7 @@
 // public class StandardCrop extends AbstractCrop //would be nicer
 class StandardCrop : public AbstractCrop {
 private:
-    const Species SPECIES;
+    const Species::Species SPECIES;
     unsigned short yield;
     unsigned short immunity;
     unsigned short growth;
@@ -19,8 +19,8 @@ private:
 public:
     
     StandardCrop();
-    explicit StandardCrop(Species species);
-    StandardCrop(Species species, unsigned short yield, unsigned short immunity, unsigned short growth);
+    explicit StandardCrop(Species::Species species);
+    StandardCrop(Species::Species species, unsigned short yield, unsigned short immunity, unsigned short growth);
     StandardCrop(StandardCrop *parent1, StandardCrop *parent2);
 
     void showDetails() override;
@@ -30,7 +30,7 @@ public:
     unsigned short getImmunity() const;
     unsigned short getGrowth() const;
 
-    Species getSpecies() const;
+    Species::Species getSpecies() const;
     string getSpeciesAsString() const;
 };
 

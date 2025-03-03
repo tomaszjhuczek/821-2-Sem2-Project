@@ -6,13 +6,13 @@
 
 #include "../Field.h"
 
-SpecialCrop::SpecialCrop(): ability(DEFAULT_ABILITY), aoeRadius(MAX_FIELD_SIZE/2) {
+SpecialCrop::SpecialCrop(): ability(Ability::DEFAULT_ABILITY), aoeRadius(MAX_FIELD_SIZE/2) {
 }
 
-SpecialCrop::SpecialCrop(Ability ability): ability(ability), aoeRadius(MAX_FIELD_SIZE/2) {
+SpecialCrop::SpecialCrop(Ability::Ability ability): ability(ability), aoeRadius(MAX_FIELD_SIZE/2) {
 }
 
-SpecialCrop::SpecialCrop(Ability ability, int aoeRadius): ability(ability) {
+SpecialCrop::SpecialCrop(Ability::Ability ability, int aoeRadius): ability(ability) {
     
     this->aoeRadius = (aoeRadius > 1 && aoeRadius <= MAX_FIELD_SIZE/2) ?
         aoeRadius : MAX_FIELD_SIZE/2;
@@ -28,7 +28,7 @@ void SpecialCrop::setAoeRadius(const int aoeRadius) {
         aoeRadius : MAX_FIELD_SIZE/2; //Ternary operators are useful here IMO
 }
 
-Ability SpecialCrop::getAbility() const {
+Ability::Ability SpecialCrop::getAbility() const {
     return this->ability;
 }
 

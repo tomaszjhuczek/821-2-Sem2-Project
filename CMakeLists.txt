@@ -22,6 +22,8 @@ add_executable(TU821-Sem2-Project
         Field.cpp
         Field.h
         crop/species.h
+        crop/SpecialCrop.cpp
+        crop/SpecialCrop.h
         item/Chemical.cpp
         item/Chemical.h
         item/Tool.cpp
