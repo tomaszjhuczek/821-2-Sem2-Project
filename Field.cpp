@@ -8,6 +8,8 @@
 
 #include "crop/StandardCrop.h"
 
+#include "item/Tool.h"
+
 
 
 Field::Field() {
@@ -84,4 +86,24 @@ void Field::tick() const {//Tick entire grid
         }
     }
 }
+
+bool Field::till(Tool tiller, int x, int y){
+    if(tiller.getTill() == true){
+        if(field[x][y] == nullptr){
+            int xBoost = tiller.getXReach();
+            int yBoost = tiller.getYReach();
+            for(int i = 0; i < xBoost; i++){
+                for(int z = 0; z < yBoost; z++){
+                    field[x + i][y + z]->setTill(true);
+                }
+            }
+            return true;    // Till successful  
+        }
+        else if(field[x][y]->checkIfTilled() == true){
+            return false;   // Till fail. This cell is tilled.
+        }
+    }
+    else return false;  // Till fail. The tool cannot till.
+}
+
 
