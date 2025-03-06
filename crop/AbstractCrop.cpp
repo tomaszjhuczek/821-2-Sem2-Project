@@ -42,6 +42,8 @@ void AbstractCrop::grow(const unsigned short amount) {//Grow by n stages if belo
     //TODO: Fix bug
     if (this->age <= MAX_AGE) {
         this->age+=amount;
+    } else {
+        this->mature == true;
     }
 }
 

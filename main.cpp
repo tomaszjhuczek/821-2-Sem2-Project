@@ -45,7 +45,7 @@ int main(int, char**){
 
     auto testfield = new Field();
 
-    testfield->plantStandardCrop(2,2,WHEAT) ? cout << "Success\n" : cout << "Fail\n";
+    testfield->plantStandardCrop(2,2,Species::WHEAT) ? cout << "Success\n" : cout << "Fail\n";
     testfield->tick();
     testfield->getInfo(2,2);
 };

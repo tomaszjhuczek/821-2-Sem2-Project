@@ -4,6 +4,8 @@
 
 #include "StandardCrop.h"
 
+#include "SpecialCrop.h"
+
 int calculateMaxAge(Species::Species species) {
     //TODO: Implement algorithm for calculating age
 
@@ -17,6 +19,7 @@ StandardCrop::StandardCrop() : AbstractCrop(calculateMaxAge(Species::DEFAULT_SPE
     
 }
 
+
 StandardCrop::StandardCrop(const Species::Species species) : AbstractCrop(calculateMaxAge(species)), SPECIES(species), yield(1), immunity(1), growth(1) {//Set the species basic crop
     
 }
@@ -26,7 +29,7 @@ StandardCrop::StandardCrop(StandardCrop *parent1, StandardCrop *parent2) : SPECI
     //TODO: Crossbreeding Algorithm, following is temporary
 
     //Compact if else exist in C++?
-    //TLDR: (if statement) ? (do this if true) : (do this if false);
+    //TLDR: (if statement) ? (set this if true) : (set this if false);
     this->growth = (parent1->getGrowth() + parent2->getGrowth() < 10) ?
         (parent1->getGrowth() + parent2->getGrowth()) : 10;
     
