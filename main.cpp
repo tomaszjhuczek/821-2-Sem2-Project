@@ -15,6 +15,7 @@ int main(int, char**){
     cout << "Crop Test" << endl;
 
     auto *crop1 = new StandardCrop(Species::WHEAT);
+    crop1->grow();
     //TODO: Remove this after testing
     cout << crop1->getSpecies() << endl;
     cout << crop1->getImmunity() << endl;

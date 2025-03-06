@@ -11,19 +11,19 @@
 class SpecialCrop : public AbstractCrop {
 
 private:
-    const Ability ability;
+    const Ability::Ability ability;
     int aoeRadius;
 
 public:
 
     SpecialCrop();
-    SpecialCrop(Ability ability);
-    SpecialCrop(Ability ability, int aoeRadius);
+    SpecialCrop(Ability::Ability ability);
+    SpecialCrop(Ability::Ability ability, int aoeRadius);
     virtual ~SpecialCrop();
     
     void setAoeRadius(int aoeRadius);
 
-    Ability getAbility() const;
+    Ability::Ability getAbility() const;
     int getAoeRadius() const;
 };
 
