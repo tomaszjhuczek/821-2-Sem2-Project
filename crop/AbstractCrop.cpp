@@ -10,11 +10,11 @@ int AbstractCrop::getTotalCrops() {
     return AbstractCrop::amountOfCrops;
 }
 
-AbstractCrop::AbstractCrop() : age(0), MAX_AGE(10), mature(false) {//Default crop type
+AbstractCrop::AbstractCrop() : age(0), MAX_AGE(10), mature(false), isTilled(0) {//Default crop type
     amountOfCrops++;
 }
 
-AbstractCrop::AbstractCrop(int maxAge): age(0), MAX_AGE(maxAge), mature(false) {//Destructor
+AbstractCrop::AbstractCrop(int maxAge): age(0), MAX_AGE(maxAge), mature(false), isTilled(0) {//Destructor
     amountOfCrops--;
 }
 
@@ -53,3 +53,18 @@ bool AbstractCrop::checkIfMature() {//check if the given crop reached its max ag
     return this->mature;
 
 }
+
+bool AbstractCrop::checkIfTilled(){
+    if(this->isTilled == true){
+        return true;
+    }
+    else return false; 
+}
+
+void AbstractCrop::setTill(bool tillState){
+    if(tillState == true){
+    this->isTilled = true;
+    }
+    else this->isTilled = false;
+}
+

@@ -25,6 +25,8 @@ public:
     bool tryToKill(int x, int y);
     bool harvest(int x, int y);
     void getInfo(int x, int y);
+    bool till(Tool tiller, int x, int y);
+
     //TODO: Implement methods that interact with all parameters in crops
 };
 

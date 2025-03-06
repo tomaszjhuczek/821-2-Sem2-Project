@@ -33,10 +33,10 @@ void Chemical::setYieldMultiplier(float newYieldMultiplier){
 
 
 bool operator==(const Chemical &inst1, const Chemical &inst2){
-    const Chemical * ptr1 = &inst1;
-    const Chemical * ptr2 = &inst2;
-
-    return *ptr1 == *ptr2;
+    if(inst1.yieldMultiplier == inst2.yieldMultiplier && inst1.immunityMultiplier == inst2.yieldMultiplier && inst1.growthMultiplier == inst2.growthMultiplier){
+        return true;
+    }
+    else return false; 
 }
 
 // Compares the contents of the addresses of two Chemical objects 
