@@ -4,7 +4,6 @@
 
 #ifndef ABILITY_H
 #define ABILITY_H
-#include <avx512fp16vlintrin.h>
 #include <string>
 
 
