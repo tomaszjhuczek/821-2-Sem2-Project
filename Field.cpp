@@ -6,9 +6,8 @@
 
 #include <valarray>
 
+#include "crop/SpecialCrop.h"
 #include "crop/StandardCrop.h"
-
-
 
 Field::Field() {
     
@@ -23,18 +22,78 @@ bool Field::plantStandardCrop(int x, int y) {
     }
 }
 
-bool Field::plantStandardCrop(int x, int y, Species specimen){
+bool Field::plantStandardCrop(int x, int y, Species::Species specimen){
     if (field[x][y] == nullptr) { //Check if slot is occupied
         this->field[x][y] = new StandardCrop(specimen);
         return true; //Success
-    } else {
-        return false; //Fail
     }
+    return false; //Fail
 }
+
+bool Field::plantSpecialCrop(int x, int y, Ability::Ability ability) {
+    if (field[x][y] == nullptr) {
+        this->field[x][y] = new SpecialCrop(ability);
+        return true;
+    }
+    return false;
+}
+
+bool Field::plantSpecialCrop(int x, int y, Ability::Ability ability, int aoeRadius) {
+    if (field[x][y] == nullptr) {
+        this->field[x][y] = new SpecialCrop(ability, aoeRadius);
+        return true;
+    }
+    return false;
+}
+
 
 bool Field::crossBreed(int x, int y) {
     // Combine two crops at random and try to breed
-    //TODO
+    if (field[x][y] == nullptr) {
+        return false;
+    }
+    int randomIndex = rand() % 6 + 1; // Generate a random number between 1 and 6
+    int x1,y1,x2,y2;
+    switch (randomIndex) {
+        case 1:
+            x1 = x - 1; y1 = y;
+            x2 = x + 1; y2 = y;
+        break;
+
+        case 2:
+            x1 = x; y1 = y - 1;
+            x2 = x; y2 = y + 1;
+        break;
+
+        case 3:
+            x1 = x - 1; y1 = y;
+            x2 = x; y2 = y + 1;
+        break;
+        
+        case 4:
+            x1 = x - 1; y1 = y;
+            x2 = x; y2 = y - 1;
+        break;
+        
+        case 5:
+            x1 = x; y1 = y -1;
+            x2 = x + 1; y2 = y;
+        break;
+        
+        case 6:
+            x1 = x; y1 = y + 1;
+            x2 = x + 1; y2 = y;
+        break;
+        
+        default:
+        return false;
+    }
+    
+    if (dynamic_cast<StandardCrop*>(field[x1][y1]) && dynamic_cast<StandardCrop*>(field[x2][y2])) {//Double check if these two positions are of type StandardCrop
+        field[x][y] = new StandardCrop(dynamic_cast<StandardCrop *>(field[x1][y1]),
+                                       dynamic_cast<StandardCrop *>(field[x2][y2]));
+        return true;
+    }   
     return false;
 }
 
@@ -73,13 +132,12 @@ void Field::getInfo(int x, int y) {//Return info for given coordinates
     field[x][y]->showDetails();
 }
 
-void Field::tick() const {//Tick entire grid
-    // Run each slot in the field
-    //TODO: Make this nicer
-    for (int x = 0; x < MAX_FIELD_SIZE; ++x) {
-        for (int y = 0; y < MAX_FIELD_SIZE; ++y) {
-            if (field[x][y] != nullptr) {
-                field[x][y]->grow();
+void Field::tick() const {
+    // Tick each slot in the field
+    for (const auto & x : field) {
+        for (auto y : x) {
+            if (y != nullptr) {
+                y->grow();
             }
         }
     }

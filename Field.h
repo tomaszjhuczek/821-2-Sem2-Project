@@ -4,6 +4,7 @@
 
 #ifndef FIELD_H
 #define FIELD_H
+#include "crop/ability.h"
 #include "crop/StandardCrop.h"
 
 constexpr int MAX_FIELD_SIZE = 7;
@@ -16,7 +17,9 @@ public:
     Field();
     
     bool plantStandardCrop(int x, int y);
-    bool plantStandardCrop(int x, int y, Species specimen);
+    bool plantStandardCrop(int x, int y, Species::Species specimen);
+    bool plantSpecialCrop(int x, int y, Ability::Ability ability);
+    bool plantSpecialCrop(int x, int y, Ability::Ability ability, int aoeRadius);
     bool crossBreed(int x, int y);
     void tick() const;
     bool tryToKill(int x, int y);
