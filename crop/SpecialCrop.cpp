@@ -35,3 +35,8 @@ Ability::Ability SpecialCrop::getAbility() const {
 int SpecialCrop::getAoeRadius() const {
     return this->aoeRadius;
 }
+
+void SpecialCrop::showDetails() {
+    //TODO
+
+}

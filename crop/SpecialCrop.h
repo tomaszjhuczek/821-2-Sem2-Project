@@ -25,6 +25,7 @@ public:
 
     Ability::Ability getAbility() const;
     int getAoeRadius() const;
+    void showDetails();
 };
 
 
