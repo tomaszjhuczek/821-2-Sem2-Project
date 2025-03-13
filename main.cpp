@@ -24,7 +24,7 @@ int main(int argc, char** argv){
     cout << crop1->getImmunity() << endl;
 
     QMessageBox box;
-    box.setText("Test Message");
+    box.setText("ANSBASDSAKJDSAD");
     box.exec();
 
     delete crop1; 
