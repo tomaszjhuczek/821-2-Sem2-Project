@@ -3,6 +3,9 @@ project(TU821-Sem2-Project VERSION 0.1.0 LANGUAGES C CXX)
 
 #find_package(SQLite3 REQUIRED) TODO: implement this
 
+find_package(Qt6 COMPONENTS
+        Widgets REQUIRED)
+
 add_executable(TU821-Sem2-Project 
         main.cpp
         crop/AbstractCrop.cpp
@@ -32,6 +35,9 @@ add_executable(TU821-Sem2-Project
         crop/SpecialCrop.cpp
         crop/ability.h
 )
+
+target_link_libraries(TU821-Sem2-Project
+        Qt6::Widgets)
 
 #target_link_libraries(TU821-Sem2-Project
 #        SQLite3
