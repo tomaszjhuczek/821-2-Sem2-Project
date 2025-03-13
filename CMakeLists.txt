@@ -3,6 +3,11 @@ project(TU821-Sem2-Project VERSION 0.1.0 LANGUAGES C CXX)
 
 #find_package(SQLite3 REQUIRED) TODO: implement this
 
+IF(WIN32)
+set(Qt6_DIR C:/Users/LENOVO/QTGroup/6.8.2/mingw_64/lib/cmake/Qt6)
+ENDIF()
+
+
 find_package(Qt6 COMPONENTS
         Widgets REQUIRED)
 
