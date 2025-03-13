@@ -1,15 +1,18 @@
 #include "Field.h"
 #include "item/Item.h"
 #include "item/Chemical.h"
-#include "item/Tool.h"
 #include "shop/Shop.h"
 #include "crop/StandardCrop.h"
+#include <QApplication>
+#include <QMessageBox>
 
 using namespace std;
 
 int currentTurn = 1; 
 
-int main(int, char**){
+int main(int argc, char** argv){
+
+    QApplication a(argc, argv);
     cout << "Hello, from TU821-Sem2-Project!\n";
 
     cout << "Crop Test" << endl;
@@ -19,6 +22,10 @@ int main(int, char**){
     //TODO: Remove this after testing
     cout << crop1->getSpecies() << endl;
     cout << crop1->getImmunity() << endl;
+
+    QMessageBox box;
+    box.setText("Test Message");
+    box.exec();
 
     delete crop1; 
 
