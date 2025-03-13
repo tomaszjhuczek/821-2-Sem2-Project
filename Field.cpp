@@ -163,7 +163,7 @@ bool Field::till(Tool tiller, int x, int y){
             return false;   // Till fail. This cell is tilled.
         }
     }
-    else return false;  // Till fail. The tool cannot till.
+    return false;  // Till fail. The tool cannot till.
 }
 
 

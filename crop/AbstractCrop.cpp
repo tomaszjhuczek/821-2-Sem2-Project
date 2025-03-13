@@ -56,7 +56,7 @@ bool AbstractCrop::checkIfMature() {//check if the given crop reached its max ag
 
 }
 
-bool AbstractCrop::checkIfTilled(){
+bool AbstractCrop::checkIfTilled() const {
     if(this->isTilled == true){
         return true;
     }

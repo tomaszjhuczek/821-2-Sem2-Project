@@ -28,7 +28,7 @@ public:
     void setName(const string &name);
     auto getAge() -> int;
     bool checkIfMature();
-    bool checkIfTilled();
+    bool checkIfTilled() const;
     void setTill(bool);
     virtual void showDetails() = 0; //Apparently this makes this class abstract. Can't we have `public abstract class` in c++!?
 

@@ -6,6 +6,7 @@
 #define FIELD_H
 #include "crop/ability.h"
 #include "crop/StandardCrop.h"
+#include "item/Tool.h"
 
 constexpr int MAX_FIELD_SIZE = 7;
 class Field {
