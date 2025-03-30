@@ -26,9 +26,7 @@ int main(int argc, char** argv){
     QMessageBox box;
     box.setText("ANSBASDSAKJDSAD");
     box.exec();
-
-    delete crop1; 
-
+    
     Chemical chem1, chem2;
     chem1.setMaxDurability(5);
     chem1.setDurability(5);
@@ -41,7 +39,7 @@ int main(int argc, char** argv){
     chem2.setImmunityMultiplier(1.76);
     chem2.setMonetaryValue(3);
 
-    Shop shop1; 
+    Shop shop1;
     shop1.addchemStock(chem1);
     shop1.addchemStock(chem2);
     shop1.displaychemStock();
@@ -59,11 +57,15 @@ int main(int argc, char** argv){
     cin >> chem2;
     cout << chem2; 
     
+    crop1->addEffect("test");
+    auto *crop2 = new StandardCrop(crop1);
+
+    cout << crop2->getImmunity() << endl;
+    cout << (&chemical1 == &chemical2) << endl;
+
     auto testfield = new Field();
 
     testfield->plantStandardCrop(2,2,Species::WHEAT) ? cout << "Success\n" : cout << "Fail\n";
     testfield->tick();
     testfield->getInfo(2,2);
-
-
 };
