@@ -23,8 +23,10 @@ int main(int argc, char** argv){
     cout << crop1->getSpecies() << endl;
     cout << crop1->getImmunity() << endl;
 
+
+    // TODO: Work In Progress GUI
     QMessageBox box;
-    box.setText("ANSBASDSAKJDSAD");
+    box.setText("GUI IS WORKING!!");
     box.exec();
     
     Chemical chem1, chem2;
@@ -60,12 +62,26 @@ int main(int argc, char** argv){
     crop1->addEffect("test");
     auto *crop2 = new StandardCrop(crop1);
 
+    auto *crop3 = new StandardCrop();
+    crop3->copy(crop1);
     cout << crop2->getImmunity() << endl;
     cout << (&chemical1 == &chemical2) << endl;
 
-    auto testfield = new Field();
 
-    testfield->plantStandardCrop(2,2,Species::WHEAT) ? cout << "Success\n" : cout << "Fail\n";
-    testfield->tick();
-    testfield->getInfo(2,2);
+    //Destroy Objects c++ style (no gc)
+    delete crop1;
+    delete crop2;
+    delete crop3;
+    crop1 = nullptr;
+    crop2 = nullptr;
+    crop3 = nullptr;
+    
+    // TODO
+    // auto testfield = new Field();
+
+    // testfield->plantStandardCrop(2,2,Species::WHEAT) ? cout << "Success\n" : cout << "Fail\n";
+    // testfield->tick();
+    // testfield->getInfo(2,2);
+
+    // delete testfield;
 };
