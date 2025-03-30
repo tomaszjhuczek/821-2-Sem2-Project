@@ -15,16 +15,25 @@ int calculateMaxAge(Species::Species species) {
 }
 
 
-StandardCrop::StandardCrop() : AbstractCrop(calculateMaxAge(Species::DEFAULT_SPECIES)), SPECIES(Species::DEFAULT_SPECIES), yield(1), immunity(1), growth(1) {//Default, do not use outside of testing
+StandardCrop::StandardCrop()
+: AbstractCrop(calculateMaxAge(Species::DEFAULT_SPECIES)), SPECIES(Species::DEFAULT_SPECIES), yield(1), immunity(1), growth(1) {//Default, do not use outside of testing
     
 }
 
+StandardCrop::StandardCrop(const StandardCrop* original)
+: AbstractCrop(original->MAX_AGE), SPECIES(original->SPECIES), yield(original->yield), immunity(original->immunity), growth(original->growth) {
+    //Copy Standard Crop
 
-StandardCrop::StandardCrop(const Species::Species species) : AbstractCrop(calculateMaxAge(species)), SPECIES(species), yield(1), immunity(1), growth(1) {//Set the species basic crop
+    this->effects = original->effects;
+}
+
+StandardCrop::StandardCrop(const Species::Species species)
+: AbstractCrop(calculateMaxAge(species)), SPECIES(species), yield(1), immunity(1), growth(1) {//Set the species basic crop
     
 }
 
-StandardCrop::StandardCrop(StandardCrop *parent1, StandardCrop *parent2) : SPECIES(parent1->getSpecies()) {//Crossbreed two crops
+StandardCrop::StandardCrop(StandardCrop *parent1, StandardCrop *parent2)
+: SPECIES(parent1->getSpecies()) {//Crossbreed two crops
 
     //TODO: Crossbreeding Algorithm, following is temporary
 
@@ -40,6 +49,18 @@ StandardCrop::StandardCrop(StandardCrop *parent1, StandardCrop *parent2) : SPECI
         (parent1->getYield() + parent2->getImmunity()) : 10;
 
     
+}
+
+std::list<string> StandardCrop::getEffects() const {
+    return effects;
+}
+
+void StandardCrop::addEffect(string effect) {
+    this->effects.push_back(effect);
+}
+
+void StandardCrop::removeEffect(string effect) {
+    this->effects.remove(effect);
 }
 
 StandardCrop::StandardCrop(const Species::Species species, const unsigned short yield, const unsigned short immunity, const unsigned short growth)

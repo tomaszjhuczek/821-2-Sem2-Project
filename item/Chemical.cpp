@@ -26,7 +26,7 @@ void Chemical::setImmunityMultiplier(float newImmunityMultiplier){
 
 void Chemical::setYieldMultiplier(float newYieldMultiplier){
     if(newYieldMultiplier < 0 ){
-        cout << "\nError. Invalid input.";
+        throw "Invalid input";
     }
     else yieldMultiplier = newYieldMultiplier;
 }
