@@ -32,7 +32,15 @@ protected:
 
     static int itemsCount;
 private:
-   
+
+    friend istream& operator>>(istream &istr, Item &inst1);
+    // Lets the player set the name and durability of an item.
+
+    friend bool operator<(const Item &inst1, const Item &inst2);
+    friend bool operator>(const Item &inst1, const Item &inst2); 
+    // The above functions are utilized to compare the monetary value of the items.
+    // At a later stage, within the shops, this will be utilized to sort them in ascending order.
+
 };
 
 #endif

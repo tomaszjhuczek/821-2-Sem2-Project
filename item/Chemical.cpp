@@ -62,3 +62,10 @@ ostream& operator<< (ostream &ostr, const Chemical &inst1){
 // UP stands for "Use Points", this is the alternative term to "Hit Points" (HP) which describes
 // the durability of a tool.
 
+bool operator!=(const Chemical &inst1, const Chemical &inst2){
+    if(inst1.yieldMultiplier == inst2.yieldMultiplier && inst1.immunityMultiplier == inst2.yieldMultiplier && inst1.growthMultiplier == inst2.growthMultiplier){
+        return false;
+    }
+    else return true;
+} 
+

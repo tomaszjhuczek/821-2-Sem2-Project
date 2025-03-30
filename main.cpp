@@ -32,13 +32,14 @@ int main(int argc, char** argv){
     Chemical chem1, chem2;
     chem1.setMaxDurability(5);
     chem1.setDurability(5);
-    chem1.setMonetaryValue(-1);
+    chem1.setMonetaryValue(2);
     chem1.setItemName("PLANT EXECUTOR");
     cout << chem1;
 
     chem2.setItemName("plant healer");
     chem2.setYieldMultiplier(1.256);
     chem2.setImmunityMultiplier(1.76);
+    chem2.setMonetaryValue(3);
 
     Shop shop1; 
     shop1.addchemStock(chem1);
@@ -48,11 +49,21 @@ int main(int argc, char** argv){
     Chemical *chemical1 = new Chemical();
     Chemical *chemical2 = chemical1;
 
-    cout << (&chemical1 == &chemical2) << endl;
-
+    cout << "\nOPERATOR TESTING" << endl; 
+    cout << (chem1 == chem2) << endl;
+    cout << (chem1 != chem2) << endl;
+    cout << (chem1 < chem2) << endl;
+    cout << (chem1 > chem2) << endl;
+    cout << "Pick a name and sell value, seperated by a whitespace." << endl;
+    cin.precision(3);
+    cin >> chem2;
+    cout << chem2; 
+    
     auto testfield = new Field();
 
     testfield->plantStandardCrop(2,2,Species::WHEAT) ? cout << "Success\n" : cout << "Fail\n";
     testfield->tick();
     testfield->getInfo(2,2);
+
+
 };

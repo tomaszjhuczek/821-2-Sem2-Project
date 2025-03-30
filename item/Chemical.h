@@ -28,10 +28,11 @@ private:
     // If false, the chemical has benefical properties (positive Multipliers).
 
     friend bool operator==(const Chemical &inst1, const Chemical &inst2);
-    friend ostream& operator<< (ostream &ostr, const Chemical &inst1);
+    friend bool operator!=(const Chemical &inst1, const Chemical &inst2);
+    friend ostream& operator<<(ostream &ostr, const Chemical &inst1);
 
     // Overloaded operators to allow comparison and insertion of Chemical objects.
-    // To be replicated for Tool objects.
+    // To be replicated for Tool objects, eventually.
 
 };
 

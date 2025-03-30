@@ -43,3 +43,23 @@ void Item::setMonetaryValue(float newMonetaryValue){
 void Item::setItemName(string newName){
     name = newName; 
 }
+
+bool operator<(const Item &inst1, const Item &inst2){
+    if(inst1.monentaryValue < inst2.monentaryValue){
+        return true;
+    }
+    else return false; 
+}
+
+bool operator>(const Item &inst1, const Item &inst2){
+    if(inst1.monentaryValue>inst2.monentaryValue){
+        return true;
+    }
+    else return false; 
+}
+
+istream& operator>>(istream &istr, Item &inst1){
+    istr >> inst1.name;
+    istr >> inst1.monentaryValue;
+    return istr;
+};
