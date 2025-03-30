@@ -15,25 +15,44 @@ int calculateMaxAge(Species::Species species) {
 }
 
 
+
 StandardCrop::StandardCrop()
-: AbstractCrop(calculateMaxAge(Species::DEFAULT_SPECIES)), SPECIES(Species::DEFAULT_SPECIES), yield(1), immunity(1), growth(1) {//Default, do not use outside of testing
+: AbstractCrop(calculateMaxAge(Species::DEFAULT_SPECIES)), species(Species::DEFAULT_SPECIES), yield(1), immunity(1), growth(1) {//Default, do not use outside of testing
     
 }
 
-StandardCrop::StandardCrop(const StandardCrop* original)
-: AbstractCrop(original->MAX_AGE), SPECIES(original->SPECIES), yield(original->yield), immunity(original->immunity), growth(original->growth) {
-    //Copy Standard Crop
+StandardCrop::~StandardCrop() {
+    cout << "Object " << this << " Destroyed" << endl; 
+};
 
-    this->effects = original->effects;
+StandardCrop::StandardCrop(const StandardCrop* original)
+: AbstractCrop(original->MAX_AGE), species(original->species), yield(original->yield), immunity(original->immunity), growth(original->growth) {
+    //Copy Standard Crop during init
+    for (string effect : original->effects) {
+        this->effects.emplace_back(effect.c_str());
+    }
 }
 
 StandardCrop::StandardCrop(const Species::Species species)
-: AbstractCrop(calculateMaxAge(species)), SPECIES(species), yield(1), immunity(1), growth(1) {//Set the species basic crop
+: AbstractCrop(calculateMaxAge(species)), species(species), yield(1), immunity(1), growth(1) {//Set the species basic crop
     
 }
 
+
+void StandardCrop::copy(const StandardCrop* original) {
+    //Copy StandardCrop later down the line
+    this->species = original->species;
+    this->yield = original->yield;
+    this->immunity = original->immunity;
+    this->growth = original->growth;
+    
+    for (const string& effect : original->effects) {
+        this->effects.push_back(effect);   
+    }
+}
+
 StandardCrop::StandardCrop(StandardCrop *parent1, StandardCrop *parent2)
-: SPECIES(parent1->getSpecies()) {//Crossbreed two crops
+: species(parent1->getSpecies()) {//Crossbreed two crops
 
     //TODO: Crossbreeding Algorithm, following is temporary
 
@@ -64,7 +83,7 @@ void StandardCrop::removeEffect(string effect) {
 }
 
 StandardCrop::StandardCrop(const Species::Species species, const unsigned short yield, const unsigned short immunity, const unsigned short growth)
-: SPECIES(species), yield(yield), immunity(immunity), growth(growth){ //Custom crop, should be only used for testing
+: species(species), yield(yield), immunity(immunity), growth(growth){ //Custom crop, should be only used for testing
 }
 
 //Getters and setters should be self-explanatory
@@ -81,11 +100,11 @@ unsigned short StandardCrop::getGrowth() const {
 }
 
 Species::Species StandardCrop::getSpecies() const {
-    return this->SPECIES;
+    return this->species;
 }
 
 string StandardCrop::getSpeciesAsString() const {
-    return speciesToString(this->SPECIES);
+    return speciesToString(this->species);
 }
 
 void StandardCrop::showDetails() {//DEBUG: Print details to console
@@ -97,3 +116,4 @@ void StandardCrop::showDetails() {//DEBUG: Print details to console
         << "Immunity" << this->getImmunity() << endl
         << "Age" << this->getAge() << endl << endl;
 }
+
