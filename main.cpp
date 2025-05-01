@@ -29,7 +29,8 @@ int main(int argc, char** argv){
     QMessageBox box;
     box.setText("GUI IS WORKING!!");
     box.exec();
-    
+
+    box.setText("Test2");
     Chemical chem1, chem2;
     chem1.setMaxDurability(5);
     chem1.setDurability(5);
