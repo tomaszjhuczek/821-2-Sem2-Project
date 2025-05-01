@@ -22,7 +22,6 @@ int main(int argc, char** argv){
     //TODO: Remove this after testing
     cout << crop1->getSpecies() << endl;
     cout << crop1->getImmunity() << endl;
-    cout << crop1->getYield() << endl;
 
 
     // TODO: Work In Progress GUI
