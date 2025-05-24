@@ -43,6 +43,8 @@ add_executable(TU821-Sem2-Project
     crop/ability.h
     crop/Species.cpp
     crop/Species.h
+        exception/ItemNotFoundException.cpp
+        exception/ItemNotFoundException.h
 )
 
 target_link_libraries(TU821-Sem2-Project
