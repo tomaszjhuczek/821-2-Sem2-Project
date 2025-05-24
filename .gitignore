@@ -18,5 +18,7 @@ CMakePresets.json
 .idea*
 .vscode*
 *.exe
+cmake-build-debug
+cmake-build-debug-coverage
 
 main

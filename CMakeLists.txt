@@ -32,7 +32,7 @@ add_executable(TU821-Sem2-Project
     crop/StandardCrop.h
     Field.cpp
     Field.h
-        crop/SpecialCrop.cpp
+    crop/SpecialCrop.cpp
     crop/SpecialCrop.h
     item/Chemical.cpp
     item/Chemical.h
@@ -41,8 +41,8 @@ add_executable(TU821-Sem2-Project
     crop/SpecialCrop.h
     crop/SpecialCrop.cpp
     crop/ability.h
-        crop/Species.cpp
-        crop/Species.h
+    crop/Species.cpp
+    crop/Species.h
 )
 
 target_link_libraries(TU821-Sem2-Project
