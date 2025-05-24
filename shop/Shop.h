@@ -3,7 +3,8 @@
 
 #include "../item/Chemical.h"
 #include "../item/Tool.h"
-#include <vector> 
+#include <vector>
+#include <algorithm>
 
 class Shop
 {
@@ -17,12 +18,11 @@ public:
     void addchemStock(Chemical&);
     void removechemStock(Chemical&);
     void displaychemStock();
+    void sortchemStock();
 
     void addtoolStock(Tool&);
     void removetoolStock(Tool&);
-    void displaytoolStock();    // These definitions need to be copied from those of the chemicals.
-    
-    // Have considered using Item pointers to refer to child objects. Not a priority at the moment. 
+    void displaytoolStock();
 
 private:
     string name; 

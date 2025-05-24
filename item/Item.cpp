@@ -33,7 +33,6 @@ void Item::setMaxDurability(unsigned int newMaxDurability){
 }
 
 void Item::setMonetaryValue(float newMonetaryValue){
-        
     if(newMonetaryValue < 0){
         cout << "Error. Invalid input." << endl; 
     }

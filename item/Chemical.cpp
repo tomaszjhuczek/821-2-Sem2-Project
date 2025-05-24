@@ -1,6 +1,6 @@
 #include "Chemical.h"
 
-Chemical::Chemical(): growthMultiplier(1), immunityMultiplier(1), yieldMultiplier(1), poison(0)
+Chemical::Chemical(): growthMultiplier(1), immunityMultiplier(1), yieldMultiplier(1), quantity(1), poison(0)
 {
     
 }
@@ -44,7 +44,8 @@ bool operator==(const Chemical &inst1, const Chemical &inst2){
 
 ostream& operator<< (ostream &ostr, const Chemical &inst1){
     ostr << "\nName: " << inst1.name;
-    ostr << "\nDurability: " << inst1.maxDurability << " UP";   
+    ostr << "\nDurability: " << inst1.maxDurability << " UP";
+    ostr << "\nQuantity: " << inst1.quantity << " standard(s) unit";
     ostr << "\nValue: $" << inst1.monentaryValue; 
     ostr << "\nMultipliers:\n";
     if(inst1.growthMultiplier != 1){
@@ -67,7 +68,9 @@ bool operator!=(const Chemical &inst1, const Chemical &inst2){
         return false;
     }
     else return true;
+}
 
-    
+bool Chemical::chemquantitySort(Chemical chem1, Chemical chem2){
+    return chem1.quantity > chem2.quantity;
 }
 

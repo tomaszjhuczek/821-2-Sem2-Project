@@ -36,3 +36,9 @@ void Shop::displaychemStock(){
         cout << "\n" << chemStock.at(i);     
     }
 }
+
+void Shop::sortchemStock(){
+    sort(chemStock.begin(), chemStock.end(), chemquantitySort);
+}
+
+// Used to sort chemical stock based on quantity available

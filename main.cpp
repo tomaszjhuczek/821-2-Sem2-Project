@@ -35,9 +35,9 @@ int main(int argc, char** argv){
     Chemical chem1, chem2;
     chem1.setMaxDurability(5);
     chem1.setDurability(5);
+    chem1.setQuantity(2);
     chem1.setMonetaryValue(2);
     chem1.setItemName("PLANT EXECUTOR");
-    cout << chem1;
 
     chem2.setItemName("plant healer");
     chem2.setYieldMultiplier(1.256);
@@ -47,6 +47,9 @@ int main(int argc, char** argv){
     Shop shop1;
     shop1.addchemStock(chem1);
     shop1.addchemStock(chem2);
+    shop1.displaychemStock();
+
+    shop1.sortchemStock();
     shop1.displaychemStock();
 
     Chemical *chemical1 = new Chemical();

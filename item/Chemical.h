@@ -14,6 +14,10 @@ public:
     void setImmunityMultiplier(float newImmunityMultiplier);
     float getYieldMultiplier(){return yieldMultiplier;}
     void setYieldMultiplier(float newYieldMultiplier);
+    float getQuantity(){return quantity;}
+    void setQuantity(float newQuantity){quantity = newQuantity;}
+
+    bool chemquantitySort(Chemical, Chemical);
 
 private:
 
