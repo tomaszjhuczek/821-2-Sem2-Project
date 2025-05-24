@@ -1,3 +1,4 @@
+#include "Field.h"
 #include "item/Item.h"
 #include "item/Chemical.h"
 #include "shop/Shop.h"

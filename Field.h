@@ -9,6 +9,7 @@
 #include "item/Tool.h"
 
 constexpr int MAX_FIELD_SIZE = 7;
+
 class Field {
 
 protected:

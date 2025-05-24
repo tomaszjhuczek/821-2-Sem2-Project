@@ -4,14 +4,17 @@
 
 #ifndef PLAYER_H
 #define PLAYER_H
-#include <vector>
 
-#include "../item/Item.h"
+// #include <vector>
+// #include "../item/Item.h"
+
+int globaltilesTilled = 0;
 
 class Player {
 private:
     int money;
     int fertilizerAmt;
+
  //   std::vector<ItemRegistry> tools;
 
 protected:

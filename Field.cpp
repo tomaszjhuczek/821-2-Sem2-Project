@@ -10,8 +10,7 @@
 #include "crop/StandardCrop.h"
 
 #include "item/Tool.h"
-
-
+#include "player/Player.h"
 
 Field::Field() {
     
@@ -157,7 +156,8 @@ bool Field::till(Tool tiller, int x, int y){
                     field[x + i][y + z]->setTill(true);
                 }
             }
-            return true;    // Till successful  
+            globaltilesTilled++;
+            return true;    // Till successful
         }
         else if(field[x][y]->checkIfTilled() == true){
             return false;   // Till fail. This cell is tilled.
