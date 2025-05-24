@@ -4,7 +4,7 @@
 #include "shop/Shop.h"
 #include "crop/StandardCrop.h"
 #include <QApplication>
-#include <nlohmann/json.hpp>
+#include "nlohmann/json.hpp"
 #include <fstream>
 
 #include "exception/ItemNotFoundException.h"
