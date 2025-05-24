@@ -8,13 +8,13 @@
 #include <vector>
 
 #include "AbstractCrop.h"
-#include "species.h"
+#include "Species.h"
 #include "../item/Chemical.h"
 
 // public class StandardCrop extends AbstractCrop //would be nicer
 class StandardCrop : public AbstractCrop {
 private:
-    Species::Species species;
+    Species *species;
     unsigned short yield;
     unsigned short immunity;
     unsigned short growth;
@@ -25,15 +25,18 @@ public:
     
     StandardCrop();
 
-    ~StandardCrop() override;
-
     explicit StandardCrop(const StandardCrop *original);
 
-    explicit StandardCrop(Species::Species species);
+    explicit StandardCrop(const Species species);
+
+    StandardCrop & operator=(const StandardCrop &other);
+
+    ~StandardCrop() override;
 
     void copy(const StandardCrop *original);
 
-    StandardCrop(Species::Species species, unsigned short yield, unsigned short immunity, unsigned short growth);
+    StandardCrop(const Species species, unsigned short yield, unsigned short immunity, unsigned short growth);
+
     StandardCrop(StandardCrop *parent1, StandardCrop *parent2);
 
     std::list<string> getEffects() const;
@@ -44,13 +47,12 @@ public:
 
     void showDetails() override;
 
-
     unsigned short getYield() const;
     unsigned short getImmunity() const;
     unsigned short getGrowth() const;
 
-    Species::Species getSpecies() const;
     string getSpeciesAsString() const;
+    Species getSpecies();
 };
 
 #endif //STANDARDCROP_H

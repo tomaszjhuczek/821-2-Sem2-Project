@@ -15,10 +15,12 @@ AbstractCrop::AbstractCrop() : age(0), MAX_AGE(10), mature(false), isTilled(0) {
 }
 
 AbstractCrop::AbstractCrop(int maxAge): age(0), MAX_AGE(maxAge), mature(false), isTilled(0) {//Destructor
-    amountOfCrops--;
+    amountOfCrops++;
 }
 
-AbstractCrop::~AbstractCrop() = default;
+AbstractCrop::~AbstractCrop() {
+    amountOfCrops--;
+};
 
 string AbstractCrop::getName() {//Return name of crop
     return this->name;

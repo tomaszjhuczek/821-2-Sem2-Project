@@ -18,7 +18,7 @@ public:
     Field();
     
     bool plantStandardCrop(int x, int y);
-    bool plantStandardCrop(int x, int y, Species::Species specimen);
+    bool plantStandardCrop(int x, int y, Species specimen);
     bool plantSpecialCrop(int x, int y, Ability::Ability ability);
     bool plantSpecialCrop(int x, int y, Ability::Ability ability, int aoeRadius);
     bool crossBreed(int x, int y);

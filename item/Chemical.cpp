@@ -67,5 +67,7 @@ bool operator!=(const Chemical &inst1, const Chemical &inst2){
         return false;
     }
     else return true;
-} 
+
+    
+}
 

@@ -16,20 +16,23 @@ int main(int argc, char** argv){
     cout << "Hello, from TU821-Sem2-Project!\n";
 
     cout << "Crop Test" << endl;
-
-    auto *crop1 = new StandardCrop(Species::WHEAT);
+    
+    auto *wheat = new Species("wheat", 10, 10);
+    auto *barley = new Species("wheat", 10, 20);
+    
+    auto *crop1 = new StandardCrop(*wheat);
     crop1->grow();
     //TODO: Remove this after testing
-    cout << crop1->getSpecies() << endl;
+    cout << crop1->getSpeciesAsString() << endl;
     cout << crop1->getImmunity() << endl;
 
 
     // TODO: Work In Progress GUI
-    QMessageBox box;
-    box.setText("GUI IS WORKING!!");
-    box.exec();
+    // QMessageBox box;
+    // box.setText("GUI IS WORKING!!");
+    // box.exec();
 
-    box.setText("Test2");
+    // box.setText("Test2");
     Chemical chem1, chem2;
     chem1.setMaxDurability(5);
     chem1.setDurability(5);
@@ -50,24 +53,23 @@ int main(int argc, char** argv){
     Chemical *chemical1 = new Chemical();
     Chemical *chemical2 = chemical1;
 
-    cout << "\nOPERATOR TESTING" << endl; 
-    cout << (chem1 == chem2) << endl;
-    cout << (chem1 != chem2) << endl;
-    cout << (chem1 < chem2) << endl;
-    cout << (chem1 > chem2) << endl;
-    cout << "Pick a name and sell value, seperated by a whitespace." << endl;
-    cin.precision(3);
-    cin >> chem2;
-    cout << chem2; 
+    // cout << "\nOPERATOR TESTING" << endl; 
+    // cout << (chem1 == chem2) << endl;
+    // cout << (chem1 != chem2) << endl;
+    // cout << (chem1 < chem2) << endl;
+    // cout << (chem1 > chem2) << endl;
+    // cout << "Pick a name and sell value, seperated by a whitespace." << endl;
+    // // cin.precision(3);
+    // // cin >> chem2;
+    // cout << chem2; 
     
     crop1->addEffect("test");
     auto *crop2 = new StandardCrop(crop1);
 
     auto *crop3 = new StandardCrop();
-    crop3->copy(crop1);
+    *crop3 = *crop1;
     cout << crop2->getImmunity() << endl;
     cout << (&chemical1 == &chemical2) << endl;
-
 
     //Destroy Objects c++ style (no gc)
     delete crop1;
@@ -85,4 +87,7 @@ int main(int argc, char** argv){
     // testfield->getInfo(2,2);
 
     // delete testfield;
-};
+    
+}
+
+;
