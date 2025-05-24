@@ -17,8 +17,6 @@ public:
     float getQuantity(){return quantity;}
     void setQuantity(float newQuantity){quantity = newQuantity;}
 
-    bool chemquantitySort(Chemical, Chemical);
-
 private:
 
     float growthMultiplier; 

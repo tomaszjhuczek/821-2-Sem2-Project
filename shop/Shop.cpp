@@ -30,15 +30,20 @@ void Shop::removechemStock(Chemical &oldStock){
         }
     }
 };
- 
+
 void Shop::displaychemStock(){
     for(int i = 0; i<chemStock.size(); i++){
         cout << "\n" << chemStock.at(i);     
     }
 }
+// Used to sort chemical stock based on quantity available
 
-void Shop::sortchemStock(){
-    sort(chemStock.begin(), chemStock.end(), chemquantitySort);
+void Shop::sortChemStock(){
+    sort(chemStock.begin(), chemStock.end(), compareChemicals);
 }
 
-// Used to sort chemical stock based on quantity available
+bool Shop::compareChemicals(Chemical a, Chemical b) {
+    return a.getQuantity() < b.getQuantity();
+}
+
+

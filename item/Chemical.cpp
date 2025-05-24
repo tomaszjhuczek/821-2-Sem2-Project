@@ -70,7 +70,4 @@ bool operator!=(const Chemical &inst1, const Chemical &inst2){
     else return true;
 }
 
-bool Chemical::chemquantitySort(Chemical chem1, Chemical chem2){
-    return chem1.quantity > chem2.quantity;
-}
 

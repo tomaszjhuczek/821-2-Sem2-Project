@@ -18,7 +18,7 @@ public:
     void addchemStock(Chemical&);
     void removechemStock(Chemical&);
     void displaychemStock();
-    void sortchemStock();
+    void sortChemStock();
 
     void addtoolStock(Tool&);
     void removetoolStock(Tool&);
@@ -33,7 +33,9 @@ private:
     int overallstockCount;    
     int chemstockCount;  
     int toolstockCount;      
-    float shopMoney; 
+    float shopMoney;
+
+    static bool compareChemicals(Chemical a, Chemical b);
 
     static int shopCount; // Keeps track of active shops 
 };
