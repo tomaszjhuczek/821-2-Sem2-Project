@@ -8,10 +8,13 @@
 
 #include "../item/Item.h"
 
+int globaltilesTilled = 0;
+
 class Player {
 private:
     int money;
     int fertilizerAmt;
+
  //   std::vector<ItemRegistry> tools;
 
 protected:
