@@ -11,6 +11,9 @@ ENDIF()
 find_package(Qt6 COMPONENTS
     Widgets REQUIRED)
 
+#find_package(nlohmann_json 3.12.0 REQUIRED)
+
+
 add_executable(TU821-Sem2-Project 
     main.cpp
     crop/AbstractCrop.cpp
@@ -29,8 +32,7 @@ add_executable(TU821-Sem2-Project
     crop/StandardCrop.h
     Field.cpp
     Field.h
-    crop/species.h
-    crop/SpecialCrop.cpp
+        crop/SpecialCrop.cpp
     crop/SpecialCrop.h
     item/Chemical.cpp
     item/Chemical.h
@@ -39,6 +41,8 @@ add_executable(TU821-Sem2-Project
     crop/SpecialCrop.h
     crop/SpecialCrop.cpp
     crop/ability.h
+        crop/Species.cpp
+        crop/Species.h
 )
 
 target_link_libraries(TU821-Sem2-Project

@@ -6,42 +6,42 @@
 
 #include "SpecialCrop.h"
 
-int calculateMaxAge(Species::Species species) {
-    //TODO: Implement algorithm for calculating age
-
-    return 10;
-    // int maxPossibleAge = speciesMaxAge(species);
-
+StandardCrop::StandardCrop()
+: AbstractCrop(), yield(1), immunity(1), growth(1) {//Default, do not use outside of testing
+    species = new Species();
 }
 
+StandardCrop::StandardCrop(const StandardCrop* original)
+: AbstractCrop(original->MAX_AGE), yield(original->yield), immunity(original->immunity), growth(original->growth) {
+    // Copy Standard Crop during init
+    species = new Species();
+    *this->species = *original->species;
+    
+     for (string effect : original->effects) {
+         this->effects.emplace_back(effect.c_str());
+     }
+}
 
-
-StandardCrop::StandardCrop()
-: AbstractCrop(calculateMaxAge(Species::DEFAULT_SPECIES)), species(Species::DEFAULT_SPECIES), yield(1), immunity(1), growth(1) {//Default, do not use outside of testing
+StandardCrop::StandardCrop(const Species species)
+: yield(1), immunity(1), growth(1) {
+    this->species = new Species();
+    *this->species = species;
     
 }
 
 StandardCrop::~StandardCrop() {
-    cout << "Object " << this << " Destroyed" << endl; 
-};
-
-StandardCrop::StandardCrop(const StandardCrop* original)
-: AbstractCrop(original->MAX_AGE), species(original->species), yield(original->yield), immunity(original->immunity), growth(original->growth) {
-    //Copy Standard Crop during init
-    for (string effect : original->effects) {
-        this->effects.emplace_back(effect.c_str());
+    cout << "Object " << this << " Destroyed" << endl;
+    if (species != nullptr) {
+        cout << "deleted " << species;
+        delete species;
+        species = nullptr;
     }
-}
-
-StandardCrop::StandardCrop(const Species::Species species)
-: AbstractCrop(calculateMaxAge(species)), species(species), yield(1), immunity(1), growth(1) {//Set the species basic crop
-    
-}
+};
 
 
 void StandardCrop::copy(const StandardCrop* original) {
     //Copy StandardCrop later down the line
-    this->species = original->species;
+    *this->species = *original->species;
     this->yield = original->yield;
     this->immunity = original->immunity;
     this->growth = original->growth;
@@ -51,9 +51,32 @@ void StandardCrop::copy(const StandardCrop* original) {
     }
 }
 
-StandardCrop::StandardCrop(StandardCrop *parent1, StandardCrop *parent2)
-: species(parent1->getSpecies()) {//Crossbreed two crops
+StandardCrop & StandardCrop::operator=(const StandardCrop &other) {
+    if (this == &other)
+        return *this;
+    delete species;
+    species = other.species;
+    yield = other.yield;
+    immunity = other.immunity;
+    growth = other.growth;
+    effects = other.effects;
 
+    if (other.species) {
+        species = new Species();
+        *species = *other.species;
+    } else {
+        species = nullptr;
+    }
+
+    for (const string& effect : other.effects) {
+        this->effects.push_back(effect);   
+    }
+    return *this;
+}
+
+StandardCrop::StandardCrop(StandardCrop *parent1, StandardCrop *parent2) {//Crossbreed two crops
+    species = new Species();
+    *species = parent1->getSpecies();
     //TODO: Crossbreeding Algorithm, following is temporary
 
     //Compact if else exist in C++?
@@ -82,11 +105,14 @@ void StandardCrop::removeEffect(string effect) {
     this->effects.remove(effect);
 }
 
-StandardCrop::StandardCrop(const Species::Species species, const unsigned short yield, const unsigned short immunity, const unsigned short growth)
-: species(species), yield(yield), immunity(immunity), growth(growth){ //Custom crop, should be only used for testing
+StandardCrop::StandardCrop(const Species species, const unsigned short yield, const unsigned short immunity, const unsigned short growth)
+: yield(yield), immunity(immunity), growth(growth) { //Custom crop, should be only used for testing
+    this->species = new Species();
+    *this->species = species;
 }
 
 //Getters and setters should be self-explanatory
+
 unsigned short StandardCrop::getYield() const {
     return this->yield;
 }
@@ -99,12 +125,12 @@ unsigned short StandardCrop::getGrowth() const {
     return this->growth;
 }
 
-Species::Species StandardCrop::getSpecies() const {
-    return this->species;
+string StandardCrop::getSpeciesAsString() const {
+    return this->species->getName();
 }
 
-string StandardCrop::getSpeciesAsString() const {
-    return speciesToString(this->species);
+Species StandardCrop::getSpecies() {
+    return *species;
 }
 
 void StandardCrop::showDetails() {//DEBUG: Print details to console
@@ -116,4 +142,3 @@ void StandardCrop::showDetails() {//DEBUG: Print details to console
         << "Immunity" << this->getImmunity() << endl
         << "Age" << this->getAge() << endl << endl;
 }
-

@@ -34,6 +34,8 @@ private:
     // Overloaded operators to allow comparison and insertion of Chemical objects.
     // To be replicated for Tool objects, eventually.
 
+
+    
 };
 
 #endif

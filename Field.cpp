@@ -26,7 +26,7 @@ bool Field::plantStandardCrop(int x, int y) {
     }
 }
 
-bool Field::plantStandardCrop(int x, int y, Species::Species specimen){
+bool Field::plantStandardCrop(int x, int y, Species specimen){
     if (field[x][y] == nullptr) { //Check if slot is occupied
         this->field[x][y] = new StandardCrop(specimen);
         return true; //Success
