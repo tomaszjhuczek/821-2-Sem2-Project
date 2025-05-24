@@ -4,9 +4,9 @@
 
 #ifndef PLAYER_H
 #define PLAYER_H
-#include <vector>
 
-#include "../item/Item.h"
+// #include <vector>
+// #include "../item/Item.h"
 
 int globaltilesTilled = 0;
 
