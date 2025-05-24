@@ -17,6 +17,17 @@ int main(int argc, char** argv){
     cout << "Hello, from TU821-Sem2-Project!\n";
 
     cout << "Crop Test" << endl;
+
+
+    std::vector<string> farmers = {"John", "Peter", "Adolf", "Karl"};
+    for (const string& farmer: farmers) {
+        cout << farmer << endl;
+    }
+    cout << endl;
+    sort (farmers.begin(), farmers.end());
+    for (const string& farmer: farmers) {
+        cout << farmer << endl;
+    }
     
     auto *wheat = new Species("wheat", 10, 10);
     auto *barley = new Species("wheat", 10, 20);
