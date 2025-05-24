@@ -11,7 +11,7 @@ ENDIF()
 find_package(Qt6 COMPONENTS
     Widgets REQUIRED)
 
-#find_package(nlohmann_json 3.12.0 REQUIRED)
+find_package(nlohmann_json 3.12.0 REQUIRED)
 
 
 add_executable(TU821-Sem2-Project 

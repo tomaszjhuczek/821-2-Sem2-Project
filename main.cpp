@@ -1,17 +1,40 @@
-#include "Field.h"
 #include "item/Item.h"
 #include "item/Chemical.h"
 #include "shop/Shop.h"
 #include "crop/StandardCrop.h"
 #include <QApplication>
-#include <QMessageBox>
+#include <nlohmann/json.hpp>
+#include <fstream>
 
 #include "exception/ItemNotFoundException.h"
 
 using namespace std;
+using nlohmann::json;;
 
+int timesOpened = 0;
+int tilesTilled = 0;
+int cropsHarvested = 0;
 
 int main(int argc, char** argv){
+    
+
+    // Try to read the stats file
+    ifstream statsFile("stats.json");
+    if (statsFile.is_open()) {
+        try {
+            json statsJson;
+            statsFile >> statsJson;
+            tilesTilled = statsJson["tilesTilled"];
+            cropsHarvested = statsJson["cropsHarvested"];
+            timesOpened = statsJson["timesOpened"];
+        } catch (...) {
+            // If reading fails, we'll use default values
+            tilesTilled = 0;
+            cropsHarvested = 0;
+            timesOpened = 0;
+        }
+        statsFile.close();
+    }
 
     QApplication a(argc, argv);
     cout << "Hello, from TU821-Sem2-Project!\n";
@@ -99,7 +122,17 @@ int main(int argc, char** argv){
         cerr << "Caught an unknown exception: " << endl;
     }
 
-    
+    cout << "Times Opened " << ++timesOpened << endl;
+
+    // Save stats to JSON file
+    json statsJson;
+    statsJson["tilesTilled"] = tilesTilled;
+    statsJson["cropsHarvested"] = cropsHarvested;
+    statsJson["timesOpened"] = timesOpened;
+    ofstream saveFile("stats.json");
+    saveFile << statsJson.dump(4); // Pretty print with indentation of 4 spaces
+    saveFile.close();
+
     //Destroy Objects c++ style (no gc)
     delete crop1;
     delete crop2;
@@ -117,5 +150,3 @@ int main(int argc, char** argv){
     // delete testfield;
     
 }
-
-;
