@@ -2,9 +2,11 @@
 // Created by tomasz on 20/02/25.
 //
 
+#include <algorithm>
 #include "StandardCrop.h"
 
 #include "SpecialCrop.h"
+#include "../exception/ItemNotFoundException.h"
 
 StandardCrop::StandardCrop()
 : AbstractCrop(), yield(1), immunity(1), growth(1) {//Default, do not use outside of testing
@@ -98,10 +100,16 @@ std::list<string> StandardCrop::getEffects() const {
 }
 
 void StandardCrop::addEffect(string effect) {
+    if (std::find(effects.begin(), effects.end(), effect) != effects.end()) {
+        throw std::invalid_argument("Effect Already Exists");
+    }
     this->effects.push_back(effect);
 }
 
 void StandardCrop::removeEffect(string effect) {
+    if (std::find(effects.begin(), effects.end(), effect) == effects.end()) {
+        throw ItemNotFoundException();
+    }
     this->effects.remove(effect);
 }
 

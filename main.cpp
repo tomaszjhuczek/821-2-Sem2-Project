@@ -6,6 +6,8 @@
 #include <QApplication>
 #include <QMessageBox>
 
+#include "exception/ItemNotFoundException.h"
+
 using namespace std;
 
 
@@ -49,7 +51,7 @@ int main(int argc, char** argv){
     shop1.addchemStock(chem2);
     shop1.displaychemStock();
 
-    shop1.sortchemStock();
+    shop1.sortChemStock();
     shop1.displaychemStock();
 
     Chemical *chemical1 = new Chemical();
@@ -73,6 +75,20 @@ int main(int argc, char** argv){
     cout << crop2->getImmunity() << endl;
     cout << (&chemical1 == &chemical2) << endl;
 
+    try {
+        crop1->addEffect("fast_grow");
+        // crop1->addEffect("fast_grow");
+        // crop2->removeEffect("fast_grow");
+        // throw domain_error("");
+    } catch (ItemNotFoundException &e) {
+        cerr << "Attempted to delete an invalid effect" << endl;
+    } catch (invalid_argument &e) {
+        cerr << "Tried adding an effect twice" << endl;
+    } catch (...) {
+        cerr << "Caught an unknown exception: " << endl;
+    }
+
+    
     //Destroy Objects c++ style (no gc)
     delete crop1;
     delete crop2;
@@ -80,7 +96,6 @@ int main(int argc, char** argv){
     crop1 = nullptr;
     crop2 = nullptr;
     crop3 = nullptr;
-    
     // TODO
     // auto testfield = new Field();
 

@@ -20,7 +20,6 @@ private:
     unsigned short growth;
     std::list<string> effects;
 
-    
 public:
     
     StandardCrop();
